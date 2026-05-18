@@ -3,279 +3,229 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sita Superspeciality Hospital</title>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,500;0,700;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<title>Sita Super Speciality Hospital & Research Centre Pvt Ltd</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --teal-50: #E1F5EE;
-    --teal-100: #9FE1CB;
-    --teal-200: #5DCAA5;
-    --teal-400: #1D9E75;
-    --teal-600: #0F6E56;
-    --teal-800: #085041;
-    --teal-900: #04342C;
+    --navy: #0d2a5e;
+    --red: #c0392b;
+    --gold: #d4a017;
+    --light: #f7f5f0;
     --white: #ffffff;
-    --gray-50: #F8FAFA;
-    --gray-100: #EEF2F1;
-    --gray-200: #D3D8D6;
-    --gray-400: #8A9997;
-    --gray-600: #4A5E5A;
-    --gray-900: #1A2926;
-    --font-heading: 'Fraunces', Georgia, serif;
-    --font-body: 'DM Sans', sans-serif;
-    --shadow-sm: 0 1px 3px rgba(15,110,86,0.08);
-    --shadow-md: 0 4px 16px rgba(15,110,86,0.12);
-    --shadow-lg: 0 8px 32px rgba(15,110,86,0.16);
-    --radius: 12px;
-    --radius-sm: 8px;
-    --radius-xl: 24px;
+    --gray: #6b7280;
+    --border: #e5e0d8;
   }
-
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body { font-family: var(--font-body); color: var(--gray-900); background: var(--white); overflow-x: hidden; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'DM Sans',sans-serif; background:var(--light); color:#1a1a1a; }
 
   /* NAV */
   nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-    background: rgba(255,255,255,0.95); backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--teal-50);
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 0 4vw; height: 72px;
-    box-shadow: var(--shadow-sm);
+    background:var(--navy);
+    position:sticky; top:0; z-index:100;
+    box-shadow:0 2px 20px rgba(0,0,0,0.3);
   }
-  .nav-logo {
-    display: flex; align-items: center; gap: 10px;
-    font-family: var(--font-heading); font-size: 1.35rem; font-weight: 700;
-    color: var(--teal-600); text-decoration: none;
+  .nav-inner {
+    max-width:1200px; margin:0 auto;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:0 2rem;
   }
-  .nav-logo .cross {
-    width: 32px; height: 32px; background: var(--teal-400); border-radius: 8px;
-    display: flex; align-items: center; justify-content: center; position: relative;
-    flex-shrink: 0;
-  }
-  .nav-logo .cross::before, .nav-logo .cross::after {
-    content: ''; position: absolute; background: white; border-radius: 2px;
-  }
-  .nav-logo .cross::before { width: 3px; height: 18px; }
-  .nav-logo .cross::after { width: 18px; height: 3px; }
-  .nav-links { display: flex; gap: 2px; align-items: center; }
+  .nav-logo { display:flex; align-items:center; gap:1rem; padding:0.8rem 0; }
+  .nav-logo img { width:44px; height:44px; object-fit:contain; border-radius:50%; background:var(--white); padding:2px; }
+  .nav-brand { color:var(--white); }
+  .nav-brand strong { display:block; font-family:'Playfair Display',serif; font-size:1rem; line-height:1.2; }
+  .nav-brand span { font-size:0.65rem; color:#aac4ff; letter-spacing:0.05em; }
+  .nav-links { display:flex; gap:0; }
   .nav-links a {
-    padding: 8px 14px; border-radius: var(--radius-sm);
-    font-size: 0.88rem; font-weight: 400; color: var(--gray-600);
-    text-decoration: none; transition: all 0.2s;
+    color:#c9d4f0; text-decoration:none; font-size:0.82rem; font-weight:500;
+    padding:1.2rem 1rem; display:block; transition:all 0.2s;
+    border-bottom:3px solid transparent; letter-spacing:0.03em;
   }
-  .nav-links a:hover, .nav-links a.active { color: var(--teal-600); background: var(--teal-50); }
-  .nav-links a.emergency-link {
-    background: #e8362a; color: white; font-weight: 500; margin-left: 8px;
+  .nav-links a:hover, .nav-links a.active { color:var(--white); border-bottom-color:var(--red); }
+  .nav-emergency {
+    background:var(--red); color:var(--white); text-decoration:none;
+    padding:0.5rem 1.2rem; border-radius:4px; font-size:0.82rem; font-weight:600;
+    letter-spacing:0.05em; animation:pulse 2s infinite;
   }
-  .nav-links a.emergency-link:hover { background: #c4291f; }
-  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
-  .hamburger span { width: 24px; height: 2px; background: var(--gray-600); border-radius: 2px; transition: all 0.3s; }
-
-  /* PAGES */
-  .page { display: none; min-height: 100vh; padding-top: 72px; }
-  .page.active { display: block; }
+  @keyframes pulse { 0%,100%{box-shadow:0 0 0 0 rgba(192,57,43,0.5)} 50%{box-shadow:0 0 0 8px rgba(192,57,43,0)} }
 
   /* HERO */
   .hero {
-    background: linear-gradient(135deg, var(--teal-900) 0%, var(--teal-600) 60%, var(--teal-400) 100%);
-    padding: 100px 4vw 80px; position: relative; overflow: hidden;
+    background: linear-gradient(135deg, var(--navy) 0%, #1a3d7c 50%, #0d2a5e 100%);
+    color:var(--white); padding:5rem 2rem 4rem; text-align:center; position:relative; overflow:hidden;
   }
   .hero::before {
-    content: ''; position: absolute; top: -40%; right: -10%; width: 600px; height: 600px;
-    background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 70%);
-    border-radius: 50%;
+    content:''; position:absolute; inset:0;
+    background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
   }
-  .hero::after {
-    content: ''; position: absolute; bottom: -20%; left: 20%; width: 400px; height: 400px;
-    background: radial-gradient(circle, rgba(157,225,203,0.1) 0%, transparent 70%);
-    border-radius: 50%;
+  .hero-logo {
+    width:120px; height:120px; background:var(--white); border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    margin:0 auto 1.5rem; box-shadow:0 8px 32px rgba(0,0,0,0.3); overflow:hidden;
   }
-  .hero-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; position: relative; z-index: 1; }
-  .hero-badge {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25);
-    color: rgba(255,255,255,0.9); padding: 6px 14px; border-radius: 100px;
-    font-size: 0.8rem; letter-spacing: 0.05em; text-transform: uppercase;
-    margin-bottom: 20px;
+  .hero-logo img { width:110px; height:110px; object-fit:contain; }
+  .hero h1 { font-family:'Playfair Display',serif; font-size:2.6rem; font-weight:700; line-height:1.2; margin-bottom:0.5rem; }
+  .hero h1 span { color:#ffd166; }
+  .hero p { font-size:1rem; color:#aac4ff; margin-bottom:0.5rem; }
+  .hero-tagline { font-size:1.1rem; color:#ffd166; font-style:italic; margin-bottom:2rem; }
+  .hero-stats {
+    display:flex; justify-content:center; gap:3rem; flex-wrap:wrap;
+    padding:2rem 0 0; border-top:1px solid rgba(255,255,255,0.15);
   }
-  .hero h1 {
-    font-family: var(--font-heading); font-size: clamp(2.4rem, 4.5vw, 3.6rem);
-    font-weight: 700; color: white; line-height: 1.15; margin-bottom: 20px;
-  }
-  .hero h1 em { color: var(--teal-100); font-style: italic; }
-  .hero p { color: rgba(255,255,255,0.78); font-size: 1.05rem; line-height: 1.7; margin-bottom: 32px; max-width: 480px; }
-  .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
-  .btn-primary {
-    background: white; color: var(--teal-600); padding: 13px 26px;
-    border-radius: var(--radius-sm); font-weight: 500; font-size: 0.95rem;
-    text-decoration: none; transition: all 0.2s; border: none; cursor: pointer;
-    display: inline-flex; align-items: center; gap: 8px;
-  }
-  .btn-primary:hover { background: var(--teal-50); transform: translateY(-1px); box-shadow: var(--shadow-md); }
-  .btn-outline {
-    border: 1.5px solid rgba(255,255,255,0.5); color: white; padding: 12px 24px;
-    border-radius: var(--radius-sm); font-weight: 400; font-size: 0.95rem;
-    text-decoration: none; transition: all 0.2s; display: inline-flex; align-items: center; gap: 8px;
-  }
-  .btn-outline:hover { border-color: white; background: rgba(255,255,255,0.1); }
-  .hero-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 48px; }
-  .stat-card {
-    background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
-    border-radius: var(--radius); padding: 20px; text-align: center;
-  }
-  .stat-num { font-family: var(--font-heading); font-size: 2rem; font-weight: 700; color: white; }
-  .stat-label { font-size: 0.8rem; color: rgba(255,255,255,0.7); margin-top: 4px; }
-  .hero-image-block {
-    background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);
-    border-radius: var(--radius-xl); padding: 32px; display: flex; flex-direction: column; gap: 16px;
-  }
-  .quick-links-title { color: rgba(255,255,255,0.6); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
-  .quick-link-item {
-    background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
-    border-radius: var(--radius-sm); padding: 16px 20px;
-    display: flex; align-items: center; gap: 14px;
-    cursor: pointer; transition: all 0.2s; color: white; text-decoration: none;
-  }
-  .quick-link-item:hover { background: rgba(255,255,255,0.18); transform: translateX(4px); }
-  .quick-link-icon {
-    width: 40px; height: 40px; border-radius: 8px;
-    display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0;
-  }
-  .quick-link-text strong { display: block; font-size: 0.92rem; font-weight: 500; }
-  .quick-link-text span { font-size: 0.78rem; color: rgba(255,255,255,0.6); }
+  .stat { text-align:center; }
+  .stat-num { font-family:'Playfair Display',serif; font-size:2.2rem; font-weight:700; color:#ffd166; }
+  .stat-label { font-size:0.75rem; color:#aac4ff; text-transform:uppercase; letter-spacing:0.1em; }
+  .hero-btns { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; margin-bottom:2rem; }
+  .btn-primary { background:var(--red); color:var(--white); padding:0.85rem 2rem; border-radius:4px; text-decoration:none; font-weight:600; font-size:0.9rem; transition:all 0.2s; }
+  .btn-primary:hover { background:#a93226; transform:translateY(-2px); }
+  .btn-outline { border:2px solid rgba(255,255,255,0.5); color:var(--white); padding:0.85rem 2rem; border-radius:4px; text-decoration:none; font-weight:600; font-size:0.9rem; transition:all 0.2s; }
+  .btn-outline:hover { border-color:var(--white); background:rgba(255,255,255,0.1); }
 
   /* SECTIONS */
-  section { padding: 80px 4vw; }
-  .section-inner { max-width: 1100px; margin: 0 auto; }
-  .section-tag {
-    display: inline-block; background: var(--teal-50); color: var(--teal-600);
-    padding: 5px 14px; border-radius: 100px; font-size: 0.8rem; letter-spacing: 0.05em;
-    text-transform: uppercase; font-weight: 500; margin-bottom: 12px;
-  }
-  .section-heading {
-    font-family: var(--font-heading); font-size: clamp(1.8rem, 3vw, 2.5rem);
-    font-weight: 700; color: var(--gray-900); line-height: 1.2; margin-bottom: 16px;
-  }
-  .section-sub { color: var(--gray-400); font-size: 1rem; line-height: 1.7; max-width: 560px; }
+  .section { padding:4rem 2rem; max-width:1200px; margin:0 auto; }
+  .section-title { font-family:'Playfair Display',serif; font-size:2rem; color:var(--navy); margin-bottom:0.5rem; }
+  .section-sub { color:var(--red); font-size:0.85rem; font-weight:600; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:0.5rem; }
+  .section-divider { width:60px; height:3px; background:var(--red); margin:1rem 0 2rem; }
 
-  /* CARDS */
-  .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; margin-top: 40px; }
-  .card {
-    background: white; border: 1px solid var(--gray-100); border-radius: var(--radius);
-    padding: 28px; transition: all 0.25s; cursor: pointer; position: relative; overflow: hidden;
+  /* NOTICE BAND */
+  .notice-band { background:var(--red); color:var(--white); padding:0.6rem 0; overflow:hidden; }
+  .notice-scroll { white-space:nowrap; animation:scroll-left 30s linear infinite; display:inline-block; }
+  .notice-scroll span { margin:0 3rem; font-size:0.85rem; font-weight:500; }
+  @keyframes scroll-left { from{transform:translateX(100vw)} to{transform:translateX(-100%)} }
+
+  /* SERVICES GRID */
+  .services-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:1.5rem; }
+  .service-card {
+    background:var(--white); border:1px solid var(--border); border-radius:8px;
+    padding:1.5rem; transition:all 0.3s; cursor:default;
+    border-top:3px solid transparent;
   }
-  .card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--teal-200); transition: background 0.2s; }
-  .card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); border-color: var(--teal-100); }
-  .card:hover::before { background: var(--teal-400); }
-  .card-icon { width: 52px; height: 52px; background: var(--teal-50); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 18px; }
-  .card h3 { font-size: 1.05rem; font-weight: 500; color: var(--gray-900); margin-bottom: 10px; }
-  .card p { font-size: 0.88rem; color: var(--gray-400); line-height: 1.6; }
+  .service-card:hover { border-top-color:var(--red); box-shadow:0 8px 30px rgba(0,0,0,0.1); transform:translateY(-4px); }
+  .service-icon { font-size:2rem; margin-bottom:0.8rem; }
+  .service-name { font-family:'Playfair Display',serif; font-size:1.05rem; color:var(--navy); margin-bottom:0.3rem; }
+  .service-detail { font-size:0.8rem; color:var(--gray); line-height:1.5; }
+  .service-fee { margin-top:0.8rem; font-size:0.8rem; font-weight:600; color:var(--red); }
 
   /* DOCTORS */
-  .doctors-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; margin-top: 40px; }
+  .doctors-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:1.5rem; }
   .doctor-card {
-    background: white; border: 1px solid var(--gray-100); border-radius: var(--radius);
-    overflow: hidden; transition: all 0.25s; text-align: center;
+    background:var(--white); border:1px solid var(--border); border-radius:8px;
+    padding:1.5rem; display:flex; gap:1rem; align-items:flex-start;
   }
-  .doctor-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); }
   .doctor-avatar {
-    width: 100%; aspect-ratio: 1;
-    display: flex; align-items: center; justify-content: center;
-    font-family: var(--font-heading); font-size: 2.4rem; font-weight: 700;
-    overflow: hidden; position: relative;
+    width:56px; height:56px; border-radius:50%; background:linear-gradient(135deg,var(--navy),#1a3d7c);
+    flex-shrink:0; display:flex; align-items:center; justify-content:center;
+    color:var(--white); font-family:'Playfair Display',serif; font-size:1.4rem;
   }
-  /* Image fills the square; if it loads, it sits on top of the initials */
-  .doctor-avatar img {
-    position: absolute; inset: 0;
-    width: 100%; height: 100%; object-fit: cover;
-    display: block; z-index: 1;
-  }
-  /* Initials sit behind the image; visible only when image fails or is absent */
-  .doctor-avatar .initials { position: relative; z-index: 0; }
-  .doctor-info { padding: 20px 16px; }
-  .doctor-info h3 { font-size: 1rem; font-weight: 500; color: var(--gray-900); margin-bottom: 4px; }
-  .doctor-specialty { font-size: 0.82rem; color: var(--teal-600); font-weight: 500; margin-bottom: 8px; }
-  .doctor-exp { font-size: 0.78rem; color: var(--gray-400); }
-  .doctor-badge {
-    display: inline-block; background: var(--teal-50); color: var(--teal-600);
-    padding: 3px 10px; border-radius: 100px; font-size: 0.75rem; margin-top: 10px;
-  }
+  .doctor-info h4 { font-family:'Playfair Display',serif; font-size:1rem; color:var(--navy); }
+  .doctor-info p { font-size:0.78rem; color:var(--red); font-weight:600; margin:0.2rem 0; }
+  .doctor-info small { font-size:0.75rem; color:var(--gray); }
 
-  /* CONTACT */
-  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
-  .contact-card { background: var(--teal-50); border-radius: var(--radius); padding: 28px; margin-bottom: 16px; }
-  .contact-card h3 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.07em; color: var(--teal-600); font-weight: 500; margin-bottom: 6px; }
-  .contact-card p { font-size: 1rem; color: var(--gray-900); line-height: 1.5; }
-  .map-placeholder {
-    width: 100%; aspect-ratio: 4/3; background: var(--teal-50);
-    border-radius: var(--radius); border: 1px solid var(--teal-100);
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    color: var(--teal-600); font-size: 2rem; gap: 12px;
+  /* FACILITIES */
+  .facilities-list { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:0.8rem; }
+  .facility-item {
+    background:var(--white); border:1px solid var(--border); border-radius:6px;
+    padding:0.8rem 1.2rem; display:flex; align-items:center; gap:0.8rem;
+    font-size:0.88rem; color:#333;
   }
-  .map-placeholder span { font-size: 0.9rem; color: var(--gray-400); }
+  .facility-item::before { content:'✦'; color:var(--red); font-size:0.7rem; flex-shrink:0; }
 
-  /* EMERGENCY */
-  .emergency-hero { background: linear-gradient(135deg, #8B1A1A 0%, #c4291f 50%, #e8362a 100%); padding: 80px 4vw; }
-  .emerg-inner { max-width: 900px; margin: 0 auto; text-align: center; color: white; }
-  .emerg-inner h1 { font-family: var(--font-heading); font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; margin-bottom: 12px; }
-  .emerg-inner p { font-size: 1.1rem; color: rgba(255,255,255,0.85); margin-bottom: 32px; }
-  .emerg-hotline {
-    font-family: var(--font-heading); font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 700;
-    color: white; display: block; letter-spacing: -0.02em; margin: 20px 0;
+  /* EMERGENCY BOX */
+  .emergency-box {
+    background:var(--navy); color:var(--white); border-radius:12px;
+    padding:2.5rem; display:grid; grid-template-columns:1fr 1fr; gap:2rem; align-items:center;
   }
-  .emerg-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; margin-top: 40px; }
-  .emerg-card { background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25); border-radius: var(--radius); padding: 24px; text-align: left; color: white; }
-  .emerg-card h3 { font-size: 1rem; font-weight: 500; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
-  .emerg-card p { font-size: 0.85rem; color: rgba(255,255,255,0.75); line-height: 1.6; }
+  .emergency-box h3 { font-family:'Playfair Display',serif; font-size:1.8rem; margin-bottom:0.5rem; }
+  .emergency-box p { color:#aac4ff; font-size:0.9rem; }
+  .emergency-phone { font-size:2rem; font-weight:700; color:#ffd166; margin:0.5rem 0; }
+  .emergency-badge {
+    background:var(--red); border-radius:8px; padding:1.5rem;
+    text-align:center;
+  }
+  .emergency-badge strong { display:block; font-size:1.5rem; margin-bottom:0.3rem; }
+  .emergency-badge span { font-size:0.8rem; color:rgba(255,255,255,0.8); }
 
-  /* ABOUT */
-  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-  .about-image {
-    aspect-ratio: 4/3; background: linear-gradient(135deg, var(--teal-50), var(--teal-100));
-    border-radius: var(--radius-xl); display: flex; align-items: center; justify-content: center;
-    font-size: 5rem; position: relative; overflow: hidden;
+  /* TIMING TABLE */
+  .timing-table { width:100%; border-collapse:collapse; background:var(--white); border-radius:8px; overflow:hidden; box-shadow:0 2px 12px rgba(0,0,0,0.06); }
+  .timing-table th { background:var(--navy); color:var(--white); padding:0.8rem 1rem; text-align:left; font-size:0.82rem; font-weight:600; letter-spacing:0.05em; }
+  .timing-table td { padding:0.8rem 1rem; font-size:0.84rem; border-bottom:1px solid var(--border); vertical-align:top; }
+  .timing-table tr:last-child td { border-bottom:none; }
+  .timing-table tr:hover td { background:#f9f7f3; }
+  .dept-badge { display:inline-block; background:#e8f0fe; color:var(--navy); border-radius:4px; padding:0.1rem 0.5rem; font-size:0.75rem; font-weight:600; }
+
+  /* OPD Schedule */
+  .fee-tag { color:var(--red); font-weight:600; font-size:0.82rem; }
+
+  /* JOB PAGE */
+  .job-card {
+    background:var(--white); border:1px solid var(--border); border-radius:8px;
+    padding:1.5rem 2rem; margin-bottom:1rem;
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;
   }
-  .about-image::before {
-    content: ''; position: absolute; bottom: -30%; right: -20%; width: 300px; height: 300px;
-    background: radial-gradient(circle, var(--teal-200) 0%, transparent 70%); border-radius: 50%;
+  .job-title { font-family:'Playfair Display',serif; font-size:1.1rem; color:var(--navy); }
+  .job-meta { display:flex; gap:1rem; margin-top:0.4rem; flex-wrap:wrap; }
+  .job-tag { background:var(--light); border:1px solid var(--border); border-radius:20px; padding:0.2rem 0.7rem; font-size:0.75rem; color:var(--gray); }
+  .apply-btn { background:var(--navy); color:var(--white); border:none; padding:0.6rem 1.4rem; border-radius:4px; font-size:0.85rem; font-weight:600; cursor:pointer; transition:background 0.2s; text-decoration:none; }
+  .apply-btn:hover { background:var(--red); }
+
+  /* MODAL */
+  .modal-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6); z-index:1000; align-items:center; justify-content:center; padding:1rem; }
+  .modal-overlay.open { display:flex; }
+  .modal { background:var(--white); border-radius:12px; width:100%; max-width:580px; max-height:90vh; overflow-y:auto; }
+  .modal-header { background:var(--navy); color:var(--white); padding:1.5rem 2rem; border-radius:12px 12px 0 0; display:flex; justify-content:space-between; align-items:center; }
+  .modal-header h3 { font-family:'Playfair Display',serif; font-size:1.3rem; }
+  .modal-close { background:none; border:none; color:var(--white); font-size:1.5rem; cursor:pointer; }
+  .modal-body { padding:2rem; }
+  .form-group { margin-bottom:1.2rem; }
+  .form-group label { display:block; font-size:0.83rem; font-weight:600; color:var(--navy); margin-bottom:0.4rem; }
+  .form-group input, .form-group select, .form-group textarea {
+    width:100%; border:1.5px solid var(--border); border-radius:6px;
+    padding:0.65rem 0.9rem; font-size:0.88rem; font-family:'DM Sans',sans-serif;
+    transition:border-color 0.2s;
   }
-  .values-list { list-style: none; margin-top: 24px; display: flex; flex-direction: column; gap: 12px; }
-  .values-list li { display: flex; align-items: flex-start; gap: 12px; font-size: 0.95rem; color: var(--gray-600); }
-  .val-dot { width: 8px; height: 8px; background: var(--teal-400); border-radius: 50%; margin-top: 7px; flex-shrink: 0; }
-  .timeline { border-left: 2px solid var(--teal-100); margin-left: 8px; margin-top: 40px; padding-left: 28px; display: flex; flex-direction: column; gap: 28px; }
-  .tl-item { position: relative; }
-  .tl-item::before { content: ''; position: absolute; left: -35px; top: 4px; width: 12px; height: 12px; background: var(--teal-400); border-radius: 50%; border: 3px solid white; box-shadow: 0 0 0 2px var(--teal-200); }
-  .tl-year { font-size: 0.8rem; color: var(--teal-600); font-weight: 500; margin-bottom: 4px; }
-  .tl-item h4 { font-size: 0.95rem; font-weight: 500; color: var(--gray-900); margin-bottom: 4px; }
-  .tl-item p { font-size: 0.85rem; color: var(--gray-400); line-height: 1.6; }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline:none; border-color:var(--navy); }
+  .form-row { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+  .submit-btn {
+    width:100%; background:var(--red); color:var(--white); border:none;
+    padding:0.9rem; border-radius:6px; font-size:0.95rem; font-weight:600;
+    cursor:pointer; transition:background 0.2s; font-family:'DM Sans',sans-serif;
+  }
+  .submit-btn:hover { background:#a93226; }
+  .form-note { font-size:0.75rem; color:var(--gray); text-align:center; margin-top:0.8rem; }
+
+  /* PAGE SECTIONS */
+  .page { display:none; }
+  .page.active { display:block; }
 
   /* FOOTER */
-  footer { background: var(--teal-900); color: rgba(255,255,255,0.7); padding: 60px 4vw 32px; }
-  .footer-inner { max-width: 1100px; margin: 0 auto; }
-  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 48px; }
-  .footer-brand h3 { font-family: var(--font-heading); color: white; font-size: 1.2rem; margin-bottom: 12px; }
-  .footer-brand p { font-size: 0.87rem; line-height: 1.7; max-width: 280px; }
-  .footer-col h4 { color: white; font-size: 0.85rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 14px; }
-  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
-  .footer-col ul li a { color: rgba(255,255,255,0.65); text-decoration: none; font-size: 0.87rem; transition: color 0.2s; }
-  .footer-col ul li a:hover { color: var(--teal-100); }
-  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; font-size: 0.82rem; }
+  footer { background:var(--navy); color:#aac4ff; padding:3rem 2rem 1.5rem; }
+  .footer-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:2rem; max-width:1200px; margin:0 auto 2rem; }
+  .footer-col h4 { color:var(--white); font-family:'Playfair Display',serif; margin-bottom:1rem; font-size:1rem; }
+  .footer-col p, .footer-col a { font-size:0.83rem; line-height:1.8; color:#aac4ff; text-decoration:none; display:block; }
+  .footer-col a:hover { color:var(--white); }
+  .footer-bottom { border-top:1px solid rgba(255,255,255,0.1); padding-top:1.2rem; text-align:center; font-size:0.78rem; max-width:1200px; margin:0 auto; }
 
-  /* UTILITY */
-  .alt-bg { background: var(--gray-50); }
-  .text-center { text-align: center; }
-  .text-center .section-sub { margin: 0 auto; }
+  /* ABOUT */
+  .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:start; }
+  .highlight-box { background:linear-gradient(135deg,var(--navy),#1a3d7c); color:var(--white); border-radius:12px; padding:2rem; }
+  .highlight-box h3 { font-family:'Playfair Display',serif; font-size:1.3rem; margin-bottom:1rem; }
+  .highlight-list { list-style:none; }
+  .highlight-list li { padding:0.4rem 0; font-size:0.85rem; color:#aac4ff; display:flex; gap:0.5rem; }
+  .highlight-list li::before { content:'→'; color:#ffd166; flex-shrink:0; }
 
-  @media (max-width: 768px) {
-    .nav-links { display: none; flex-direction: column; position: fixed; top: 72px; left: 0; right: 0; background: white; padding: 20px; border-bottom: 1px solid var(--gray-100); gap: 4px; box-shadow: var(--shadow-md); }
-    .nav-links.open { display: flex; }
-    .hamburger { display: flex; }
-    .hero-inner { grid-template-columns: 1fr; gap: 40px; }
-    .hero-stats { grid-template-columns: repeat(3, 1fr); }
-    .about-grid, .contact-grid { grid-template-columns: 1fr; }
-    .footer-grid { grid-template-columns: 1fr 1fr; }
+  /* SUCCESS MESSAGE */
+  .success-msg { display:none; background:#d4edda; border:1px solid #c3e6cb; border-radius:8px; padding:1.5rem; text-align:center; }
+  .success-msg.show { display:block; }
+  .success-msg h4 { color:#155724; font-family:'Playfair Display',serif; font-size:1.2rem; margin-bottom:0.5rem; }
+  .success-msg p { color:#155724; font-size:0.85rem; }
+
+  @media(max-width:768px) {
+    .hero h1 { font-size:1.8rem; }
+    .about-grid { grid-template-columns:1fr; }
+    .emergency-box { grid-template-columns:1fr; }
+    .form-row { grid-template-columns:1fr; }
+    .nav-links { display:none; }
+    .hero-stats { gap:1.5rem; }
   }
 </style>
 </head>
@@ -283,384 +233,956 @@
 
 <!-- NAV -->
 <nav>
-  <a class="nav-logo" href="#" onclick="showPage('home')">
-    <div class="cross"></div>
-    Sita Superspeciality Hospital
-  </a>
-  <div class="nav-links" id="navLinks">
-    <a href="#" onclick="showPage('home')" class="active" id="nav-home">Home</a>
-    <a href="#" onclick="showPage('about')" id="nav-about">About Us</a>
-    <a href="#" onclick="showPage('services')" id="nav-services">Services</a>
-    <a href="#" onclick="showPage('doctors')" id="nav-doctors">Doctors</a>
-    <a href="#" onclick="showPage('contact')" id="nav-contact">Contact</a>
-    <a href="#" onclick="showPage('emergency')" class="emergency-link" id="nav-emergency">🚨 Emergency</a>
-  </div>
-  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
-    <span></span><span></span><span></span>
+  <div class="nav-inner">
+    <div class="nav-logo">
+      <img src="logo.jpeg" alt="Sita Hospital Logo">
+      <div class="nav-brand">
+        <strong>Sita Super Speciality Hospital</strong>
+        <span>& Research Centre Pvt Ltd — Birgunj</span>
+      </div>
+    </div>
+    <div class="nav-links">
+      <a href="#" onclick="showPage('home')" class="active" id="nav-home">Home</a>
+      <a href="#" onclick="showPage('about')" id="nav-about">About</a>
+      <a href="#" onclick="showPage('services')" id="nav-services">OPD / Services</a>
+      <a href="#" onclick="showPage('doctors')" id="nav-doctors">Doctors</a>
+      <a href="#" onclick="showPage('facilities')" id="nav-facilities">Facilities</a>
+      <a href="#" onclick="showPage('careers')" id="nav-careers">Careers</a>
+      <a href="#" onclick="showPage('contact')" id="nav-contact">Contact</a>
+    </div>
+    <a href="tel:051-525090" class="nav-emergency">🚨 Emergency</a>
   </div>
 </nav>
 
-<!-- HOME PAGE -->
-<div class="page active" id="page-home">
-  <section class="hero" style="padding-top:120px">
-    <div class="hero-inner">
-      <div>
-        <div class="hero-badge">🏥 Accredited Since 1985</div>
-        <h1>Healthcare with <em>Compassion</em> & Precision</h1>
-        <p>Sita Superspeciality Hospital provides world-class medical care with a team of 200+ specialists across 30 departments — serving our community for over 35 years.</p>
-        <div class="hero-actions">
-          <a href="#" class="btn-primary" onclick="showPage('services')">Explore Services →</a>
-          <a href="#" class="btn-outline" onclick="showPage('doctors')">Meet Our Doctors</a>
-        </div>
-        <div class="hero-stats">
-          <div class="stat-card"><div class="stat-num">50K+</div><div class="stat-label">Patients Served</div></div>
-          <div class="stat-card"><div class="stat-num">200+</div><div class="stat-label">Specialists</div></div>
-          <div class="stat-card"><div class="stat-num">30</div><div class="stat-label">Departments</div></div>
-        </div>
-      </div>
-      <div>
-        <div class="hero-image-block">
-          <div class="quick-links-title">Quick Access</div>
-          <a href="#" class="quick-link-item" onclick="showPage('emergency')">
-            <div class="quick-link-icon" style="background:rgba(232,54,42,0.2)">🚨</div>
-            <div class="quick-link-text"><strong>Emergency Services</strong><span>24/7 critical care available</span></div>
-          </a>
-          <a href="#" class="quick-link-item" onclick="showPage('doctors')">
-            <div class="quick-link-icon" style="background:rgba(255,255,255,0.15)">👨‍⚕️</div>
-            <div class="quick-link-text"><strong>Find a Doctor</strong><span>Browse our specialists</span></div>
-          </a>
-          <a href="#" class="quick-link-item" onclick="showPage('contact')">
-            <div class="quick-link-icon" style="background:rgba(255,255,255,0.15)">📞</div>
-            <div class="quick-link-text"><strong>Contact Us</strong><span>Get in touch with our team</span></div>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="section-inner text-center">
-      <div class="section-tag">Why Choose Us</div>
-      <h2 class="section-heading">Committed to Your Well-being</h2>
-      <p class="section-sub">We combine advanced medical technology with compassionate care to deliver exceptional outcomes for every patient.</p>
-      <div class="cards-grid">
-        <div class="card"><div class="card-icon">🩺</div><h3>Expert Physicians</h3><p>Board-certified specialists with decades of experience across all major medical disciplines.</p></div>
-        <div class="card"><div class="card-icon">🔬</div><h3>Advanced Diagnostics</h3><p>State-of-the-art imaging, lab testing, and pathology services for accurate, rapid diagnosis.</p></div>
-        <div class="card"><div class="card-icon">❤️</div><h3>Patient-Centered Care</h3><p>Every care plan is tailored to the individual — because no two patients are the same.</p></div>
-        <div class="card"><div class="card-icon">🏃</div><h3>24/7 Emergency</h3><p>Round-the-clock emergency services with rapid response teams always on standby.</p></div>
-      </div>
-    </div>
-  </section>
+<!-- NOTICE BAND -->
+<div class="notice-band">
+  <div class="notice-scroll">
+    <span>🏥 100-Bed Super Speciality Hospital</span>
+    <span>📞 Emergency: 051-525090</span>
+    <span>⏰ 24/7 Emergency Services Available</span>
+    <span>🩺 OPD Available All Days</span>
+    <span>📍 Main Road Birta-04, Birgunj</span>
+    <span>💊 24-Hour Pharmacy</span>
+    <span>🔬 Advanced Lab & Diagnostic Services</span>
+  </div>
 </div>
 
-<!-- ABOUT PAGE -->
-<div class="page" id="page-about">
-  <section style="padding-top:100px">
-    <div class="section-inner">
-      <div class="about-grid">
+<!-- ===== HOME PAGE ===== -->
+<div id="page-home" class="page active">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-logo">
+      <img src="image/logo.png" alt="Sita Hospital Logo">
+    </div>
+    <h1>Sita Super Speciality<br><span>Hospital & Research Centre</span></h1>
+    <p>Sita Superspeciality Hospital & Research Centre Pvt Ltd</p>
+    <p class="hero-tagline">"We Treat, He Cures"</p>
+    <div class="hero-btns">
+      <a href="#" onclick="showPage('services')" class="btn-primary">View OPD Schedule</a>
+      <a href="#" onclick="showPage('careers')" class="btn-outline">Join Our Team</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-num">100</div><div class="stat-label">Beds</div></div>
+      <div class="stat"><div class="stat-num">15+</div><div class="stat-label">Specialities</div></div>
+      <div class="stat"><div class="stat-num">24/7</div><div class="stat-label">Emergency</div></div>
+      <div class="stat"><div class="stat-num">2075</div><div class="stat-label">Established</div></div>
+    </div>
+  </div>
+
+  <!-- EMERGENCY BOX -->
+  <div style="background:#fff5f5; padding:2rem;">
+    <div style="max-width:1200px;margin:0 auto;">
+      <div class="emergency-box">
         <div>
-          <div class="section-tag">Our Story</div>
-          <h2 class="section-heading">Healing Lives Since 1985</h2>
-          <p style="color:var(--gray-400);line-height:1.7;margin-bottom:20px">Sita Superspeciality Hospital was founded with a single mission: to provide accessible, high-quality healthcare to every member of our community — regardless of background or circumstance.</p>
-          <p style="color:var(--gray-400);line-height:1.7">Today, we stand as the region's premier medical institution, with cutting-edge facilities, a distinguished medical faculty, and an unwavering commitment to clinical excellence.</p>
-          <ul class="values-list">
-            <li><span class="val-dot"></span>Accredited by the Joint Commission on Medical Excellence</li>
-            <li><span class="val-dot"></span>Top-rated in patient satisfaction for 10 consecutive years</li>
-            <li><span class="val-dot"></span>Home to the region's leading research & teaching programs</li>
-            <li><span class="val-dot"></span>Committed to sustainable, eco-conscious healthcare operations</li>
-          </ul>
-        </div>
-        <div class="about-image">🏥</div>
-      </div>
-    </div>
-  </section>
-
-  <section class="alt-bg">
-    <div class="section-inner">
-      <div class="section-tag">Milestones</div>
-      <h2 class="section-heading">Our Journey</h2>
-      <div class="timeline">
-        <div class="tl-item"><div class="tl-year">1985</div><h4>Founded</h4><p>Sita Superspeciality Hospital opened its doors with 50 beds and a team of 30 dedicated medical professionals.</p></div>
-        <div class="tl-item"><div class="tl-year">1998</div><h4>First Cardiac Center</h4><p>Launched the region's first dedicated cardiac surgery center, performing over 500 open-heart procedures in its inaugural year.</p></div>
-        <div class="tl-item"><div class="tl-year">2007</div><h4>Research Institute</h4><p>Established our Research Institute, now leading clinical trials in oncology and neurology.</p></div>
-        <div class="tl-item"><div class="tl-year">2015</div><h4>Expansion</h4><p>Completed a major campus expansion, doubling capacity to 600 beds and adding 12 new specialty departments.</p></div>
-        <div class="tl-item"><div class="tl-year">2023</div><h4>Digital Health Hub</h4><p>Launched our AI-assisted diagnostics program and telemedicine platform, serving patients nationwide.</p></div>
-      </div>
-    </div>
-  </section>
-</div>
-
-<!-- SERVICES PAGE -->
-<div class="page" id="page-services">
-  <section style="padding-top:100px">
-    <div class="section-inner text-center">
-      <div class="section-tag">Departments</div>
-      <h2 class="section-heading">Our Medical Services</h2>
-      <p class="section-sub">Comprehensive care across 30 specialties — from primary care to complex surgical interventions.</p>
-      <div class="cards-grid" style="margin-top:40px">
-        <div class="card"><div class="card-icon">❤️</div><h3>Cardiology</h3><p>Advanced heart care including interventional cardiology, electrophysiology, and heart failure management.</p></div>
-        <div class="card"><div class="card-icon">🧠</div><h3>Neurology</h3><p>Expert diagnosis and treatment of neurological conditions including stroke, epilepsy, and Parkinson's disease.</p></div>
-        <div class="card"><div class="card-icon">🦴</div><h3>Orthopedics</h3><p>Comprehensive bone, joint, and spine care — from sports injuries to complex reconstructive surgery.</p></div>
-        <div class="card"><div class="card-icon">🔬</div><h3>Oncology</h3><p>Multidisciplinary cancer care including chemotherapy, radiation, immunotherapy, and clinical trials.</p></div>
-        <div class="card"><div class="card-icon">🤱</div><h3>Obstetrics & Gynecology</h3><p>Prenatal care, delivery services, and comprehensive women's health throughout all life stages.</p></div>
-        <div class="card"><div class="card-icon">👶</div><h3>Pediatrics</h3><p>Specialized care for newborns, children, and adolescents in a child-friendly, comforting environment.</p></div>
-        <div class="card"><div class="card-icon">🫁</div><h3>Pulmonology</h3><p>Diagnosis and management of respiratory conditions including asthma, COPD, and sleep disorders.</p></div>
-        <div class="card"><div class="card-icon">🔭</div><h3>Ophthalmology</h3><p>Comprehensive eye care from routine exams to complex retinal surgery and LASIK correction.</p></div>
-      </div>
-    </div>
-  </section>
-</div>
-
-<!-- DOCTORS PAGE -->
-<!--
-  HOW TO ADD DOCTOR IMAGES:
-  1. Upload your photo files to the /images/ folder in your GitHub repo
-  2. Name them exactly as shown in each src="images/..." below
-  3. The colored initials show automatically if an image is missing or hasn't loaded yet
--->
-<div class="page" id="page-doctors">
-  <section style="padding-top:100px">
-    <div class="section-inner text-center">
-      <div class="section-tag">Our Team</div>
-      <h2 class="section-heading">Meet Our Specialists</h2>
-      <p class="section-sub">Our 200+ physicians bring world-class expertise and genuine compassion to every patient encounter.</p>
-      <div class="doctors-grid" style="margin-top:40px">
-
-        <div class="doctor-card">
-          <div class="doctor-avatar" style="background:var(--teal-50);color:var(--teal-600)">
-            <img src="images/dr-sarah-ahmed.jpg" alt="Dr. Sarah Ahmed" onerror="this.style.display='none'">
-            <span class="initials">SA</span>
-          </div>
-          <div class="doctor-info">
-            <h3>Dr. Sarah Ahmed</h3>
-            <div class="doctor-specialty">Chief of Cardiology</div>
-            <div class="doctor-exp">20+ years experience</div>
-            <span class="doctor-badge">MBBS, MD, FACC</span>
-          </div>
-        </div>
-
-        <div class="doctor-card">
-          <div class="doctor-avatar" style="background:var(--teal-100);color:var(--teal-800)">
-            <img src="images/dr-michael-kim.jpg" alt="Dr. Michael Kim" onerror="this.style.display='none'">
-            <span class="initials">MK</span>
-          </div>
-          <div class="doctor-info">
-            <h3>Dr. Michael Kim</h3>
-            <div class="doctor-specialty">Neurology</div>
-            <div class="doctor-exp">15+ years experience</div>
-            <span class="doctor-badge">MD, PhD</span>
-          </div>
-        </div>
-
-        <div class="doctor-card">
-          <div class="doctor-avatar" style="background:#FEF3E2;color:#92540a">
-            <img src="images/dr-priya-rao.jpg" alt="Dr. Priya Rao" onerror="this.style.display='none'">
-            <span class="initials">PR</span>
-          </div>
-          <div class="doctor-info">
-            <h3>Dr. Priya Rao</h3>
-            <div class="doctor-specialty">Oncology</div>
-            <div class="doctor-exp">18+ years experience</div>
-            <span class="doctor-badge">MD, DM</span>
-          </div>
-        </div>
-
-        <div class="doctor-card">
-          <div class="doctor-avatar" style="background:#EDE9FE;color:#5b21b6">
-            <img src="images/dr-james-liu.jpg" alt="Dr. James Liu" onerror="this.style.display='none'">
-            <span class="initials">JL</span>
-          </div>
-          <div class="doctor-info">
-            <h3>Dr. James Liu</h3>
-            <div class="doctor-specialty">Orthopedic Surgery</div>
-            <div class="doctor-exp">22+ years experience</div>
-            <span class="doctor-badge">MS Ortho, FRCS</span>
-          </div>
-        </div>
-
-        <div class="doctor-card">
-          <div class="doctor-avatar" style="background:#FCE7F3;color:#831843">
-            <img src="images/dr-elena-markov.jpg" alt="Dr. Elena Markov" onerror="this.style.display='none'">
-            <span class="initials">EM</span>
-          </div>
-          <div class="doctor-info">
-            <h3>Dr. Elena Markov</h3>
-            <div class="doctor-specialty">Obstetrics & Gynecology</div>
-            <div class="doctor-exp">14+ years experience</div>
-            <span class="doctor-badge">MBBS, MS</span>
-          </div>
-        </div>
-
-        <div class="doctor-card">
-          <div class="doctor-avatar" style="background:#DCFCE7;color:#166534">
-            <img src="images/dr-raj-nair.jpg" alt="Dr. Raj Nair" onerror="this.style.display='none'">
-            <span class="initials">RN</span>
-          </div>
-          <div class="doctor-info">
-            <h3>Dr. Raj Nair</h3>
-            <div class="doctor-specialty">Pediatrics</div>
-            <div class="doctor-exp">16+ years experience</div>
-            <span class="doctor-badge">MD, DCH</span>
-          </div>
-        </div>
-
-        <div class="doctor-card">
-          <div class="doctor-avatar" style="background:#E0F2FE;color:#0c4a6e">
-            <img src="images/dr-amina-chaudhry.jpg" alt="Dr. Amina Chaudhry" onerror="this.style.display='none'">
-            <span class="initials">AC</span>
-          </div>
-          <div class="doctor-info">
-            <h3>Dr. Amina Chaudhry</h3>
-            <div class="doctor-specialty">Pulmonology</div>
-            <div class="doctor-exp">12+ years experience</div>
-            <span class="doctor-badge">MD, DM</span>
-          </div>
-        </div>
-
-        <div class="doctor-card">
-          <div class="doctor-avatar" style="background:#FEF9C3;color:#713f12">
-            <img src="images/dr-thomas-ward.jpg" alt="Dr. Thomas Ward" onerror="this.style.display='none'">
-            <span class="initials">TW</span>
-          </div>
-          <div class="doctor-info">
-            <h3>Dr. Thomas Ward</h3>
-            <div class="doctor-specialty">Ophthalmology</div>
-            <div class="doctor-exp">19+ years experience</div>
-            <span class="doctor-badge">MBBS, MS Ophth</span>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-</div>
-
-<!-- ============================================================
-     APPOINTMENTS PAGE — COMING SOON
-     To add back: create <div class="page" id="page-appointments">
-     and integrate Formspree: https://formspree.io
-     Step 1: Sign up at formspree.io and create a new form
-     Step 2: Replace the form action with your Formspree endpoint
-             e.g. <form action="https://formspree.io/f/YOUR_ID" method="POST">
-     Step 3: Add nav link back: showPage('appointments')
-     ============================================================ -->
-
-<!-- CONTACT PAGE -->
-<div class="page" id="page-contact">
-  <section style="padding-top:100px">
-    <div class="section-inner">
-      <div class="section-tag">Get in Touch</div>
-      <h2 class="section-heading">Contact Us</h2>
-      <div class="contact-grid" style="margin-top:40px">
-        <div>
-          <div class="contact-card"><h3>Address</h3><p>123 Healthcare Boulevard<br>Medical District, City 10001</p></div>
-          <div class="contact-card"><h3>Phone</h3><p>Main: (555) 200-3000<br>Emergency: (555) 911-0000</p></div>
-          <div class="contact-card"><h3>Email</h3><p>info@sitahospital.org<br>appointments@sitahospital.org</p></div>
-          <div class="contact-card"><h3>Hours</h3><p>Mon – Fri: 7:00 AM – 8:00 PM<br>Sat – Sun: 8:00 AM – 5:00 PM<br>Emergency: 24/7</p></div>
+          <h3>24/7 Emergency Services</h3>
+          <p>Our Emergency Medical Officers are available round the clock.</p>
+          <div class="emergency-phone">📞 051-525090</div>
+          <p style="color:#ffd166; font-size:0.85rem;">Emergency Fee: Rs. 300/-</p>
+          <p style="color:#aac4ff; font-size:0.82rem; margin-top:0.5rem;">Emergency Medical Officer (Dr Uday Narayan Singh)</p>
         </div>
         <div>
-          <div class="map-placeholder">
-            🗺️
-            <span>Interactive map — 123 Healthcare Blvd, Medical District</span>
+          <div class="emergency-badge">
+            <strong>Emergency Room</strong>
+            <span>विभाग (१)</span>
+            <br><br>
+            <strong style="font-size:1rem;">Sunday to Saturday</strong>
+            <div style="margin-top:0.3rem; font-size:0.8rem; color:rgba(255,255,255,0.8);">Open 24 Hours</div>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
-</div>
-
-<!-- EMERGENCY PAGE -->
-<div class="page" id="page-emergency">
-  <div class="emergency-hero">
-    <div class="emerg-inner">
-      <div style="display:inline-block;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);padding:8px 18px;border-radius:100px;font-size:0.85rem;margin-bottom:20px;">🚨 Emergency Services — Available 24/7</div>
-      <h1>Emergency Department</h1>
-      <p>If you're experiencing a life-threatening emergency, call immediately or visit our Emergency Department.</p>
-      <span class="emerg-hotline">📞 (555) 911-0000</span>
-      <div style="color:rgba(255,255,255,0.7);font-size:0.9rem">or visit us at 123 Healthcare Boulevard — Emergency Entrance on East Wing</div>
-      <div class="emerg-cards">
-        <div class="emerg-card"><h3>⚡ Average Wait Time</h3><p>Our current average ER wait time is under 18 minutes. Critical cases are seen immediately.</p></div>
-        <div class="emerg-card"><h3>🛌 Trauma Center</h3><p>Level II Trauma Center equipped for the most critical injuries with 24/7 surgical teams on call.</p></div>
-        <div class="emerg-card"><h3>🚑 Ambulance</h3><p>Direct-dial our dispatch for ambulance coordination: <strong>(555) 800-9111</strong></p></div>
-        <div class="emerg-card"><h3>👨‍👩‍👧 Family Waiting</h3><p>Dedicated family lounge with real-time patient status updates and support staff available.</p></div>
       </div>
     </div>
   </div>
-  <section>
-    <div class="section-inner text-center">
-      <div class="section-tag">Common Emergencies</div>
-      <h2 class="section-heading">When to Go to the ER</h2>
-      <div class="cards-grid">
-        <div class="card"><div class="card-icon">💔</div><h3>Chest Pain</h3><p>Sudden chest pain, pressure, or discomfort — especially with shortness of breath — requires immediate care.</p></div>
-        <div class="card"><div class="card-icon">🧠</div><h3>Stroke Symptoms</h3><p>Sudden confusion, facial drooping, arm weakness, or speech difficulty. Remember: Act FAST.</p></div>
-        <div class="card"><div class="card-icon">🩸</div><h3>Severe Bleeding</h3><p>Uncontrolled bleeding from injury or surgery. Apply pressure and come to our ER immediately.</p></div>
-        <div class="card"><div class="card-icon">🌡️</div><h3>High Fever</h3><p>Fever above 103°F (39.4°C) in adults, or any fever in infants under 3 months, warrants ER evaluation.</p></div>
+
+  <!-- QUICK SERVICES -->
+  <div class="section">
+    <div class="section-sub">What We Offer</div>
+    <h2 class="section-title">Our Speciality Departments</h2>
+    <div class="section-divider"></div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">🦴</div>
+        <div class="service-name">Orthopaedic</div>
+        <div class="service-detail">Dr Dinilp Kumar Chaurasiya (MBBS, MS Ortho, KU)</div>
+        <div class="service-fee">OPD: Rs. 300/-</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🤱</div>
+        <div class="service-name">Obs & Gynae</div>
+        <div class="service-detail">Dr Neelam Chaurasiya (MBBS(TU), MD(KU))</div>
+        <div class="service-fee">OPD: Rs. 300/-</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">💊</div>
+        <div class="service-name">Medicine</div>
+        <div class="service-detail">Dr Ravi Ranjan Sah</div>
+        <div class="service-fee">OPD: Rs. 300/-</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">👂</div>
+        <div class="service-name">ENT</div>
+        <div class="service-detail">Dr Dinesh Kumar Sah Teli & Dr Amod Shrestha</div>
+        <div class="service-fee">OPD: Rs. 300/-</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🧠</div>
+        <div class="service-name">Neuro Surgery</div>
+        <div class="service-detail">Dr Firoj Afjal</div>
+        <div class="service-fee">OPD: Rs. 300/-</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🫁</div>
+        <div class="service-name">Uro Surgery</div>
+        <div class="service-detail">Dr Bidyanand Chaurasiya & Dr Pashupati Bhatt</div>
+        <div class="service-fee">OPD: Rs. 300/-</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">👶</div>
+        <div class="service-name">Pediatrics</div>
+        <div class="service-detail">Dr Kushraj Giri, Dr Navin Jha & Dr Madhurendra Gupta</div>
+        <div class="service-fee">OPD: Rs. 300/-</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">❤️</div>
+        <div class="service-name">Cardio Department</div>
+        <div class="service-detail">Dr Brijesh Pandey</div>
+        <div class="service-fee">OPD: Rs. 300/-</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🔬</div>
+        <div class="service-name">Dermatology</div>
+        <div class="service-detail">Dr Rohit Gupta</div>
+        <div class="service-fee">OPD: Rs. 300/-</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">😷</div>
+        <div class="service-name">Anaesthesia & Critical Care</div>
+        <div class="service-detail">Dr Kumar Digamber & Dr Rupesh Mahato</div>
+        <div class="service-fee">OPD: Rs. 300/-</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🧪</div>
+        <div class="service-name">Pathology</div>
+        <div class="service-detail">Dr Kamna Sah & Dr Shalini Jha</div>
+        <div class="service-fee">As per test</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📡</div>
+        <div class="service-name">USG / Video X-ray</div>
+        <div class="service-detail">Dr Akhilendra Jha, Dr Bibek Keshari & Dr PushpaRaj Adhikary</div>
+        <div class="service-fee">Rs. 1000/-</div>
       </div>
     </div>
-  </section>
+  </div>
+
+  <!-- WHY CHOOSE US -->
+  <div style="background:var(--navy); padding:4rem 2rem;">
+    <div style="max-width:1200px;margin:0 auto; text-align:center; color:var(--white);">
+      <div style="color:#ffd166; font-size:0.85rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.5rem;">Why Choose Us</div>
+      <h2 style="font-family:'Playfair Display',serif; font-size:2rem; margin-bottom:3rem;">Trusted Healthcare in Birgunj</h2>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:2rem;">
+        <div>
+          <div style="font-size:2.5rem; margin-bottom:0.8rem;">🏥</div>
+          <h4 style="color:#ffd166; margin-bottom:0.4rem; font-family:'Playfair Display',serif;">100-Bed Hospital</h4>
+          <p style="color:#aac4ff; font-size:0.83rem;">Full inpatient admission with bed facilities for all departments</p>
+        </div>
+        <div>
+          <div style="font-size:2.5rem; margin-bottom:0.8rem;">🚑</div>
+          <h4 style="color:#ffd166; margin-bottom:0.4rem; font-family:'Playfair Display',serif;">24/7 Emergency</h4>
+          <p style="color:#aac4ff; font-size:0.83rem;">Round the clock emergency services with qualified medical officers</p>
+        </div>
+        <div>
+          <div style="font-size:2.5rem; margin-bottom:0.8rem;">👨‍⚕️</div>
+          <h4 style="color:#ffd166; margin-bottom:0.4rem; font-family:'Playfair Display',serif;">Expert Specialists</h4>
+          <p style="color:#aac4ff; font-size:0.83rem;">Treatment by specialist doctors across 15+ departments</p>
+        </div>
+        <div>
+          <div style="font-size:2.5rem; margin-bottom:0.8rem;">🔬</div>
+          <h4 style="color:#ffd166; margin-bottom:0.4rem; font-family:'Playfair Display',serif;">Advanced Diagnostics</h4>
+          <p style="color:#aac4ff; font-size:0.83rem;">Lab, USG, Video X-ray, ECG and full diagnostic services</p>
+        </div>
+        <div>
+          <div style="font-size:2.5rem; margin-bottom:0.8rem;">💊</div>
+          <h4 style="color:#ffd166; margin-bottom:0.4rem; font-family:'Playfair Display',serif;">24-Hour Pharmacy</h4>
+          <p style="color:#aac4ff; font-size:0.83rem;">In-house pharmacy open all day and night</p>
+        </div>
+        <div>
+          <div style="font-size:2.5rem; margin-bottom:0.8rem;">🍼</div>
+          <h4 style="color:#ffd166; margin-bottom:0.4rem; font-family:'Playfair Display',serif;">NICU Services</h4>
+          <p style="color:#aac4ff; font-size:0.83rem;">Neonatal Intensive Care Unit for newborn care</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- END HOME -->
+
+<!-- ===== ABOUT PAGE ===== -->
+<div id="page-about" class="page">
+  <div class="section">
+    <div class="section-sub">About Us</div>
+    <h2 class="section-title">Sita Super Speciality Hospital</h2>
+    <div class="section-divider"></div>
+    <div class="about-grid">
+      <div>
+        <p style="line-height:1.8; color:#444; margin-bottom:1.5rem;">
+          Sita Super Speciality Hospital & Research Centre Pvt Ltd is a premier 100-bed multi-speciality hospital located at Main Road Birta-04, Birgunj. Founded in 2075 B.S. (2018 A.D.), our hospital is managed and operated under the guidance of renowned specialists Dr. Dilip Kumar Chaurasiya (Orthopaedics & Addiction Medicine) and Dr. Neelam Chaurasiya (Obs & Gynaecology).
+        </p>
+        <p style="line-height:1.8; color:#444; margin-bottom:1.5rem;">
+          Our motto — <em>"We Treat, He Cures"</em> — reflects our humble approach to healthcare. We believe in providing the highest quality medical services while maintaining compassion, dignity, and care for every patient.
+        </p>
+        <p style="line-height:1.8; color:#444;">
+          From emergency services to specialized OPD consultations, from cutting-edge diagnostics to safe surgical procedures, Sita Hospital is committed to being the most trusted healthcare institution in the Madhesh region of Nepal.
+        </p>
+      </div>
+      <div>
+        <div class="highlight-box">
+          <h3>Hospital at a Glance</h3>
+          <ul class="highlight-list">
+            <li>100-Bed Capacity</li>
+            <li>15+ Medical Specialities</li>
+            <li>24/7 Emergency & Casualty</li>
+            <li>ICU & NICU</li>
+            <li>Operation Theatre</li>
+            <li>Pathology Lab</li>
+            <li>USG & Video X-Ray</li>
+            <li>ECG Services</li>
+            <li>24-Hour Pharmacy</li>
+            <li>Waiting Lounge & Parking</li>
+            <li>Clean Drinking Water & Sanitation</li>
+            <li>Diabetes & Blood Pressure Checkup</li>
+          </ul>
+        </div>
+        <div style="background:var(--white); border:1px solid var(--border); border-radius:8px; padding:1.5rem; margin-top:1.2rem;">
+          <h4 style="font-family:'Playfair Display',serif; color:var(--navy); margin-bottom:0.8rem;">Registration Details</h4>
+          <p style="font-size:0.84rem; color:var(--gray);">Hospital Registration Date: <strong>2075.03.01</strong></p>
+          <p style="font-size:0.84rem; color:var(--gray); margin-top:0.3rem;">Address: Main Road Birta-04, Birgunj</p>
+          <p style="font-size:0.84rem; color:var(--gray); margin-top:0.3rem;">Phone: 051-525090</p>
+          <p style="font-size:0.84rem; color:var(--gray); margin-top:0.3rem;">Email: hospitalsita@gmail.com</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SERVICES / OPD PAGE ===== -->
+<div id="page-services" class="page">
+  <div class="section">
+    <div class="section-sub">Outpatient Department</div>
+    <h2 class="section-title">OPD Schedule & Fee</h2>
+    <div class="section-divider"></div>
+
+    <h3 style="font-family:'Playfair Display',serif; color:var(--red); margin-bottom:1rem; font-size:1.1rem;">🚨 Emergency (24/7)</h3>
+    <table class="timing-table" style="margin-bottom:2rem;">
+      <thead><tr><th>Department</th><th>Doctor</th><th>Days & Timing</th><th>Fee</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><span class="dept-badge">Emergency</span></td>
+          <td>Emergency Medical Officer<br><small>Dr Uday Narayan Singh</small></td>
+          <td>Sunday to Saturday<br>24 Hours</td>
+          <td class="fee-tag">Rs. 300/-</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 style="font-family:'Playfair Display',serif; color:var(--navy); margin-bottom:1rem; font-size:1.1rem;">🏥 OPD — Bahirang Paramarsh</h3>
+    <table class="timing-table">
+      <thead><tr><th>Dept.</th><th>Doctor</th><th>Days & Timing</th><th>Fee</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><span class="dept-badge">Orthopaedic</span></td>
+          <td>Dr Dinilp Kumar Chaurasiya<br><small>MBBS, MS Ortho, KU</small></td>
+          <td>8:00am–9:30am<br>8:30am–10:00am<br>1:30pm–3:00pm</td>
+          <td class="fee-tag">Rs. 300/-</td>
+        </tr>
+        <tr>
+          <td><span class="dept-badge">Obs & Gynae</span></td>
+          <td>Dr Neelam Chaurasiya<br><small>MBBS(TU), MD(KU)</small></td>
+          <td>9:00–10:00am<br>2:00pm–7:00pm<br>8:30–10am</td>
+          <td class="fee-tag">Rs. 300/-</td>
+        </tr>
+        <tr>
+          <td><span class="dept-badge">Medicine</span></td>
+          <td>Dr Ravi Ranjan Sah</td>
+          <td>9:00am–10:00am<br>10:00am–3:00pm<br>2:00pm–5:00pm<br>12:30am–2:00pm</td>
+          <td class="fee-tag">Rs. 300/-</td>
+        </tr>
+        <tr>
+          <td><span class="dept-badge">ENT</span></td>
+          <td>Dr Dinesh Kumar Sah Teli<br>Dr Amod Shrestha</td>
+          <td>On Schedule</td>
+          <td class="fee-tag">Rs. 300/-</td>
+        </tr>
+        <tr>
+          <td><span class="dept-badge">Neuro Surgery</span></td>
+          <td>Dr Firoj Afjal</td>
+          <td>9:00–10:00am<br>10:00am–1:00pm</td>
+          <td class="fee-tag">Rs. 300/-</td>
+        </tr>
+        <tr>
+          <td><span class="dept-badge">Uro Surgery</span></td>
+          <td>Dr Bidyanand Chaurasiya<br>Dr Pashupati Bhatt</td>
+          <td>10:00am–3:00pm<br>8:30am–9:30am<br>1:00am–2:00pm<br>3:00pm–5:00pm</td>
+          <td class="fee-tag">Rs. 300/-</td>
+        </tr>
+        <tr>
+          <td><span class="dept-badge">Pediatrics</span></td>
+          <td>Dr Kushraj Giri<br>Dr Navin Jha<br>Dr Madhurendra Gupta</td>
+          <td>On Schedule</td>
+          <td class="fee-tag">Rs. 300/-</td>
+        </tr>
+        <tr>
+          <td><span class="dept-badge">Cardio</span></td>
+          <td>Dr Brijesh Pandey</td>
+          <td>On Schedule</td>
+          <td class="fee-tag">Rs. 300/-</td>
+        </tr>
+        <tr>
+          <td><span class="dept-badge">Dermatology</span></td>
+          <td>Dr Rohit Gupta</td>
+          <td>On Schedule</td>
+          <td class="fee-tag">Rs. 300/-</td>
+        </tr>
+        <tr>
+          <td><span class="dept-badge">Anaesthesia & Critical Care</span></td>
+          <td>Dr Kumar Digamber<br>Dr Rupesh Mahato</td>
+          <td>3:00pm–5:00pm<br>5:00pm–8:00pm</td>
+          <td class="fee-tag">Rs. 300/-</td>
+        </tr>
+        <tr>
+          <td><span class="dept-badge">Pathology</span></td>
+          <td>Dr Kamna Sah<br>Dr Shalini Jha</td>
+          <td>9:00am–1:00pm</td>
+          <td class="fee-tag">As per test</td>
+        </tr>
+        <tr>
+          <td><span class="dept-badge">USG / Video X-Ray</span></td>
+          <td>Dr Akhilendra Jha<br>Dr Bibek Keshari<br>Dr PushpaRaj Adhikary</td>
+          <td>USG schedule</td>
+          <td class="fee-tag">Rs. 1000/-</td>
+        </tr>
+        <tr>
+          <td><span class="dept-badge">Pharmacy</span></td>
+          <td>—</td>
+          <td>24 Hours</td>
+          <td class="fee-tag">—</td>
+        </tr>
+        <tr>
+          <td><span class="dept-badge">Inpatient / Billing</span></td>
+          <td>Cashier</td>
+          <td>24 Hours</td>
+          <td class="fee-tag">As per bill</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="margin-top:1rem; font-size:0.82rem; color:var(--gray);">📞 For enquiry, contact Reception or call: 051-525090</p>
+  </div>
+</div>
+
+<!-- ===== DOCTORS PAGE ===== -->
+<div id="page-doctors" class="page">
+  <div class="section">
+    <div class="section-sub">Our Medical Team</div>
+    <h2 class="section-title">Meet Our Doctors</h2>
+    <div class="section-divider"></div>
+    <div class="doctors-grid">
+      <div class="doctor-card">
+        <div class="doctor-avatar">D</div>
+        <div class="doctor-info">
+          <h4>Dr. Dilip Kumar Chaurasiya</h4>
+          <p>Orthopaedics & Addiction Medicine</p>
+          <small>MBBS, MS Ortho, KU — Founder Director</small>
+        </div>
+      </div>
+      <div class="doctor-card">
+        <div class="doctor-avatar">N</div>
+        <div class="doctor-info">
+          <h4>Dr. Neelam Chaurasiya</h4>
+          <p>Obs & Gynaecology</p>
+          <small>MBBS(TU), MD(KU) — Founder Director</small>
+        </div>
+      </div>
+      <div class="doctor-card">
+        <div class="doctor-avatar">U</div>
+        <div class="doctor-info">
+          <h4>Dr. Uday Narayan Singh</h4>
+          <p>Emergency Medical Officer</p>
+          <small>Emergency Department</small>
+        </div>
+      </div>
+      <div class="doctor-card">
+        <div class="doctor-avatar">R</div>
+        <div class="doctor-info">
+          <h4>Dr. Ravi Ranjan Sah</h4>
+          <p>Medicine</p>
+          <small>General Medicine</small>
+        </div>
+      </div>
+      <div class="doctor-card">
+        <div class="doctor-avatar">D</div>
+        <div class="doctor-info">
+          <h4>Dr. Dinesh Kumar Sah Teli</h4>
+          <p>ENT Specialist</p>
+          <small>Ear, Nose & Throat</small>
+        </div>
+      </div>
+      <div class="doctor-card">
+        <div class="doctor-avatar">A</div>
+        <div class="doctor-info">
+          <h4>Dr. Amod Shrestha</h4>
+          <p>ENT Specialist</p>
+          <small>Ear, Nose & Throat</small>
+        </div>
+      </div>
+      <div class="doctor-card">
+        <div class="doctor-avatar">F</div>
+        <div class="doctor-info">
+          <h4>Dr. Firoj Afjal</h4>
+          <p>Neuro Surgery</p>
+          <small>Neurosurgery Department</small>
+        </div>
+      </div>
+      <div class="doctor-card">
+        <div class="doctor-avatar">B</div>
+        <div class="doctor-info">
+          <h4>Dr. Bidyanand Chaurasiya</h4>
+          <p>Uro Surgery</p>
+          <small>Urology Department</small>
+        </div>
+      </div>
+      <div class="doctor-card">
+        <div class="doctor-avatar">P</div>
+        <div class="doctor-info">
+          <h4>Dr. Pashupati Bhatt</h4>
+          <p>Uro Surgery</p>
+          <small>Urology Department</small>
+        </div>
+      </div>
+      <div class="doctor-card">
+        <div class="doctor-avatar">K</div>
+        <div class="doctor-info">
+          <h4>Dr. Kushraj Giri</h4>
+          <p>Paediatrics</p>
+          <small>Child Health Department</small>
+        </div>
+      </div>
+      <div class="doctor-card">
+        <div class="doctor-avatar">N</div>
+        <div class="doctor-info">
+          <h4>Dr. Navin Jha</h4>
+          <p>Paediatrics</p>
+          <small>Child Health Department</small>
+        </div>
+      </div>
+      <div class="doctor-card">
+        <div class="doctor-avatar">M</div>
+        <div class="doctor-info">
+          <h4>Dr. Madhurendra Gupta</h4>
+          <p>Paediatrics</p>
+          <small>Child Health Department</small>
+        </div>
+      </div>
+      <div class="doctor-card">
+        <div class="doctor-avatar">B</div>
+        <div class="doctor-info">
+          <h4>Dr. Brijesh Pandey</h4>
+          <p>Cardiology</p>
+          <small>Cardio Department</small>
+        </div>
+      </div>
+      <div class="doctor-card">
+        <div class="doctor-avatar">R</div>
+        <div class="doctor-info">
+          <h4>Dr. Rohit Gupta</h4>
+          <p>Dermatology</p>
+          <small>Skin & Hair Department</small>
+        </div>
+      </div>
+      <div class="doctor-card">
+        <div class="doctor-avatar">K</div>
+        <div class="doctor-info">
+          <h4>Dr. Kumar Digamber</h4>
+          <p>Anaesthesia & Critical Care</p>
+          <small>ICU / Critical Care</small>
+        </div>
+      </div>
+      <div class="doctor-card">
+        <div class="doctor-avatar">R</div>
+        <div class="doctor-info">
+          <h4>Dr. Rupesh Mahato</h4>
+          <p>Anaesthesia & Critical Care</p>
+          <small>ICU / Critical Care</small>
+        </div>
+      </div>
+      <div class="doctor-card">
+        <div class="doctor-avatar">K</div>
+        <div class="doctor-info">
+          <h4>Dr. Kamna Sah</h4>
+          <p>Pathology</p>
+          <small>Laboratory Department</small>
+        </div>
+      </div>
+      <div class="doctor-card">
+        <div class="doctor-avatar">S</div>
+        <div class="doctor-info">
+          <h4>Dr. Shalini Jha</h4>
+          <p>Pathology</p>
+          <small>Laboratory Department</small>
+        </div>
+      </div>
+      <div class="doctor-card">
+        <div class="doctor-avatar">A</div>
+        <div class="doctor-info">
+          <h4>Dr. Akhilendra Jha</h4>
+          <p>Radiology (USG)</p>
+          <small>Imaging & Diagnostics</small>
+        </div>
+      </div>
+      <div class="doctor-card">
+        <div class="doctor-avatar">B</div>
+        <div class="doctor-info">
+          <h4>Dr. Bibek Keshari</h4>
+          <p>Radiology (USG)</p>
+          <small>Imaging & Diagnostics</small>
+        </div>
+      </div>
+      <div class="doctor-card">
+        <div class="doctor-avatar">P</div>
+        <div class="doctor-info">
+          <h4>Dr. PushpaRaj Adhikary</h4>
+          <p>Radiology (USG)</p>
+          <small>Imaging & Diagnostics</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== FACILITIES PAGE ===== -->
+<div id="page-facilities" class="page">
+  <div class="section">
+    <div class="section-sub">हस्पिटल का सेवा-सुविधाहरू</div>
+    <h2 class="section-title">Hospital Facilities</h2>
+    <div class="section-divider"></div>
+    <p style="color:var(--gray); margin-bottom:2rem; font-size:0.9rem;">A 100-bed hospital operated by orthopaedic & addiction specialist Dr. Dilip Kumar Chaurasiya and gynaecologist Dr. Neelam Chaurasiya, offering a wide range of medical services.</p>
+    <div class="facilities-list">
+      <div class="facility-item">24-Hour Emergency Services (२४ सै घण्टा आकस्मिक सेवा)</div>
+      <div class="facility-item">Specialist Doctor Treatment (विशेषज्ञ डाक्टरद्वारा उपचार)</div>
+      <div class="facility-item">All Department OPD (सम्पूर्ण विभाग OPD)</div>
+      <div class="facility-item">Admission & Bed Facility (भर्ना तथा बेड सुविधा)</div>
+      <div class="facility-item">ICU — Intensive Care Unit (आई.सि.यू सेवा)</div>
+      <div class="facility-item">NICU — Neonatal ICU (एन.आई.सि.यू सेवा)</div>
+      <div class="facility-item">Operation Theatre / Surgery (शल्यक्रिया / अपरेशन)</div>
+      <div class="facility-item">Maternity & Gynaecology (प्रसूति तथा स्त्रीरोग सेवा)</div>
+      <div class="facility-item">Paediatric / Child Health (बालरोग सेवा)</div>
+      <div class="facility-item">Laboratory / Pathology (प्रयोगशाला परीक्षण)</div>
+      <div class="facility-item">X-Ray & Video X-Ray / USG</div>
+      <div class="facility-item">ECG Services (ई.सी.जी. सेवा)</div>
+      <div class="facility-item">24-Hour Pharmacy (फार्मेसी सेवा)</div>
+      <div class="facility-item">Diabetes & Blood Pressure Testing (मधुमेह तथा रक्तचाप जाँच)</div>
+      <div class="facility-item">Clean Drinking Water & Sanitation (स्वच्छ पिउने पानी तथा शौचालय)</div>
+      <div class="facility-item">Waiting Lounge & Parking (प्रतीक्षालय तथा पार्किङ)</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== CAREERS PAGE ===== -->
+<div id="page-careers" class="page">
+  <div class="section">
+    <div class="section-sub">Join Our Team</div>
+    <h2 class="section-title">Career Opportunities</h2>
+    <div class="section-divider"></div>
+    <p style="color:var(--gray); margin-bottom:2.5rem; font-size:0.9rem; line-height:1.7;">
+      We are always looking for dedicated and compassionate healthcare professionals to join the Sita Super Speciality Hospital family. Apply for any open position below — your application and CV will be sent directly to our HR team.
+    </p>
+
+    <div id="job-list">
+      <div class="job-card">
+        <div>
+          <div class="job-title">Staff Nurse</div>
+          <div class="job-meta">
+            <span class="job-tag">🏥 Nursing</span>
+            <span class="job-tag">⏰ Full Time</span>
+            <span class="job-tag">📍 Birgunj</span>
+            <span class="job-tag">🎓 PCL/B.Sc Nursing</span>
+          </div>
+        </div>
+        <button class="apply-btn" onclick="openModal('Staff Nurse')">Apply Now</button>
+      </div>
+
+      <div class="job-card">
+        <div>
+          <div class="job-title">Medical Officer (MO)</div>
+          <div class="job-meta">
+            <span class="job-tag">🩺 Medical</span>
+            <span class="job-tag">⏰ Full Time</span>
+            <span class="job-tag">📍 Birgunj</span>
+            <span class="job-tag">🎓 MBBS</span>
+          </div>
+        </div>
+        <button class="apply-btn" onclick="openModal('Medical Officer (MO)')">Apply Now</button>
+      </div>
+
+      <div class="job-card">
+        <div>
+          <div class="job-title">Lab Technician</div>
+          <div class="job-meta">
+            <span class="job-tag">🔬 Laboratory</span>
+            <span class="job-tag">⏰ Full Time</span>
+            <span class="job-tag">📍 Birgunj</span>
+            <span class="job-tag">🎓 DMLT/B.Sc MLT</span>
+          </div>
+        </div>
+        <button class="apply-btn" onclick="openModal('Lab Technician')">Apply Now</button>
+      </div>
+
+      <div class="job-card">
+        <div>
+          <div class="job-title">Radiologist / Sonographer</div>
+          <div class="job-meta">
+            <span class="job-tag">📡 Radiology</span>
+            <span class="job-tag">⏰ Full Time</span>
+            <span class="job-tag">📍 Birgunj</span>
+            <span class="job-tag">🎓 Relevant Degree</span>
+          </div>
+        </div>
+        <button class="apply-btn" onclick="openModal('Radiologist / Sonographer')">Apply Now</button>
+      </div>
+
+      <div class="job-card">
+        <div>
+          <div class="job-title">Pharmacist</div>
+          <div class="job-meta">
+            <span class="job-tag">💊 Pharmacy</span>
+            <span class="job-tag">⏰ Full Time</span>
+            <span class="job-tag">📍 Birgunj</span>
+            <span class="job-tag">🎓 B.Pharm/D.Pharm</span>
+          </div>
+        </div>
+        <button class="apply-btn" onclick="openModal('Pharmacist')">Apply Now</button>
+      </div>
+
+      <div class="job-card">
+        <div>
+          <div class="job-title">Ward Boy / Hospital Attendant</div>
+          <div class="job-meta">
+            <span class="job-tag">🧹 Support Staff</span>
+            <span class="job-tag">⏰ Full Time</span>
+            <span class="job-tag">📍 Birgunj</span>
+            <span class="job-tag">🎓 SLC/SEE</span>
+          </div>
+        </div>
+        <button class="apply-btn" onclick="openModal('Ward Boy / Hospital Attendant')">Apply Now</button>
+      </div>
+
+      <div class="job-card">
+        <div>
+          <div class="job-title">Receptionist / Front Desk Executive</div>
+          <div class="job-meta">
+            <span class="job-tag">🗂 Administration</span>
+            <span class="job-tag">⏰ Full Time</span>
+            <span class="job-tag">📍 Birgunj</span>
+            <span class="job-tag">🎓 +2 or above</span>
+          </div>
+        </div>
+        <button class="apply-btn" onclick="openModal('Receptionist / Front Desk Executive')">Apply Now</button>
+      </div>
+
+      <div class="job-card">
+        <div>
+          <div class="job-title">Accountant / Billing Staff</div>
+          <div class="job-meta">
+            <span class="job-tag">💰 Finance</span>
+            <span class="job-tag">⏰ Full Time</span>
+            <span class="job-tag">📍 Birgunj</span>
+            <span class="job-tag">🎓 BBS/BBA</span>
+          </div>
+        </div>
+        <button class="apply-btn" onclick="openModal('Accountant / Billing Staff')">Apply Now</button>
+      </div>
+
+      <div class="job-card">
+        <div>
+          <div class="job-title">Other / Open Application</div>
+          <div class="job-meta">
+            <span class="job-tag">🌟 General</span>
+            <span class="job-tag">⏰ Various</span>
+            <span class="job-tag">📍 Birgunj</span>
+            <span class="job-tag">🎓 As applicable</span>
+          </div>
+        </div>
+        <button class="apply-btn" onclick="openModal('Open Application')">Apply Now</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== CONTACT PAGE ===== -->
+<div id="page-contact" class="page">
+  <div class="section">
+    <div class="section-sub">Get In Touch</div>
+    <h2 class="section-title">Contact & Location</h2>
+    <div class="section-divider"></div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:2rem; align-items:start;">
+      <div>
+        <div style="background:var(--white); border:1px solid var(--border); border-radius:8px; padding:2rem;">
+          <h3 style="font-family:'Playfair Display',serif; color:var(--navy); margin-bottom:1.5rem;">Contact Information</h3>
+          <div style="display:flex; flex-direction:column; gap:1rem;">
+            <div style="display:flex; gap:0.8rem; align-items:flex-start;">
+              <span style="font-size:1.2rem;">📍</span>
+              <div>
+                <strong style="font-size:0.85rem; color:var(--navy);">Address</strong>
+                <p style="font-size:0.85rem; color:var(--gray);">Main Road Birta-04, Birgunj, Parsa, Nepal</p>
+              </div>
+            </div>
+            <div style="display:flex; gap:0.8rem; align-items:flex-start;">
+              <span style="font-size:1.2rem;">📞</span>
+              <div>
+                <strong style="font-size:0.85rem; color:var(--navy);">Phone / Emergency</strong>
+                <p style="font-size:0.85rem; color:var(--gray);">051-525090</p>
+              </div>
+            </div>
+            <div style="display:flex; gap:0.8rem; align-items:flex-start;">
+              <span style="font-size:1.2rem;">✉️</span>
+              <div>
+                <strong style="font-size:0.85rem; color:var(--navy);">Email</strong>
+                <p style="font-size:0.85rem; color:var(--gray);">hospitalsita@gmail.com</p>
+              </div>
+            </div>
+            <div style="display:flex; gap:0.8rem; align-items:flex-start;">
+              <span style="font-size:1.2rem;">⏰</span>
+              <div>
+                <strong style="font-size:0.85rem; color:var(--navy);">Emergency Hours</strong>
+                <p style="font-size:0.85rem; color:var(--gray);">24 Hours / 7 Days a Week</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:1rem; background:var(--navy); border-radius:8px; padding:1.5rem; color:var(--white); text-align:center;">
+          <div style="font-size:2rem; margin-bottom:0.5rem;">🚨</div>
+          <h4 style="font-family:'Playfair Display',serif; font-size:1.2rem; margin-bottom:0.3rem;">Medical Emergency?</h4>
+          <div style="font-size:1.8rem; font-weight:700; color:#ffd166;">051-525090</div>
+          <p style="font-size:0.8rem; color:#aac4ff; margin-top:0.3rem;">Available 24 Hours</p>
+        </div>
+      </div>
+      <div style="background:var(--white); border:1px solid var(--border); border-radius:8px; overflow:hidden;">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3568.0!2d84.43!3d27.0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjfCsDAwJzAwLjAiTiA4NMKwMjUnNDguMCJF!5e0!3m2!1sen!2snp!4v1600000000000!5m2!1sen!2snp"
+          width="100%" height="380" style="border:0;" allowfullscreen="" loading="lazy"
+          title="Sita Hospital Location — Main Road Birta-04, Birgunj">
+        </iframe>
+        <div style="padding:1rem; font-size:0.82rem; color:var(--gray); border-top:1px solid var(--border);">
+          📍 Main Road Birta-04, Birgunj — <a href="https://maps.google.com/?q=Birta+Birgunj+Nepal" target="_blank" style="color:var(--red);">Open in Google Maps →</a>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-inner">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <h3>Sita Superspeciality Hospital</h3>
-        <p>Delivering compassionate, world-class healthcare to our community since 1985. Your health is our mission.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Pages</h4>
-        <ul>
-          <li><a href="#" onclick="showPage('home')">Home</a></li>
-          <li><a href="#" onclick="showPage('about')">About Us</a></li>
-          <li><a href="#" onclick="showPage('services')">Services</a></li>
-          <li><a href="#" onclick="showPage('doctors')">Doctors</a></li>
-          <li><a href="#" onclick="showPage('contact')">Contact</a></li>
-          <li><a href="#" onclick="showPage('emergency')">Emergency</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Services</h4>
-        <ul>
-          <li><a href="#" onclick="showPage('services')">Cardiology</a></li>
-          <li><a href="#" onclick="showPage('services')">Neurology</a></li>
-          <li><a href="#" onclick="showPage('services')">Oncology</a></li>
-          <li><a href="#" onclick="showPage('services')">Pediatrics</a></li>
-          <li><a href="#" onclick="showPage('services')">Orthopedics</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Contact</h4>
-        <ul>
-          <li><a href="#">(555) 200-3000</a></li>
-          <li><a href="#">info@sitahospital.org</a></li>
-          <li><a href="#" onclick="showPage('contact')">Find Us</a></li>
-          <li><a href="#" onclick="showPage('emergency')" style="color:#f87171">Emergency: (555) 911-0000</a></li>
-        </ul>
-      </div>
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h4>Sita Super Speciality Hospital</h4>
+      <p>& Research Centre Pvt Ltd</p>
+      <p style="margin-top:0.5rem; font-style:italic; color:#ffd166;">"We Treat, He Cures"</p>
+      <p style="margin-top:0.8rem;">A premier 100-bed multi-speciality hospital serving Birgunj and the Madhesh region.</p>
     </div>
-    <div class="footer-bottom">
-      <span>© 2025 Sita Superspeciality Hospital. All rights reserved.</span>
-      <span>Privacy Policy · Terms of Service</span>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <a href="#" onclick="showPage('about')">About Us</a>
+      <a href="#" onclick="showPage('services')">OPD Schedule</a>
+      <a href="#" onclick="showPage('doctors')">Our Doctors</a>
+      <a href="#" onclick="showPage('facilities')">Facilities</a>
+      <a href="#" onclick="showPage('careers')">Careers</a>
+      <a href="#" onclick="showPage('contact')">Contact</a>
     </div>
+    <div class="footer-col">
+      <h4>Departments</h4>
+      <a href="#">Orthopaedics</a>
+      <a href="#">Obs & Gynaecology</a>
+      <a href="#">Medicine</a>
+      <a href="#">ENT</a>
+      <a href="#">Neuro Surgery</a>
+      <a href="#">Paediatrics</a>
+      <a href="#">Cardiology</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <p>📍 Main Road Birta-04, Birgunj</p>
+      <p>📞 051-525090</p>
+      <p>✉️ hospitalsita@gmail.com</p>
+      <p style="margin-top:0.8rem; color:#ffd166; font-weight:600;">🚨 Emergency: 24/7</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Sita Super Speciality Hospital & Research Centre Pvt Ltd. All rights reserved. | Birgunj, Nepal</p>
   </div>
 </footer>
 
-<script>
-function showPage(id) {
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
-  document.getElementById('page-' + id).classList.add('active');
-  const navEl = document.getElementById('nav-' + id);
-  if (navEl) navEl.classList.add('active');
-  window.scrollTo(0, 0);
-  document.getElementById('navLinks').classList.remove('open');
-  return false;
-}
+<!-- APPLICATION MODAL -->
+<div class="modal-overlay" id="applyModal">
+  <div class="modal">
+    <div class="modal-header">
+      <h3>Apply: <span id="modal-job-title"></span></h3>
+      <button class="modal-close" onclick="closeModal()">×</button>
+    </div>
+    <div class="modal-body">
 
-function toggleMenu() {
-  document.getElementById('navLinks').classList.toggle('open');
-}
+      <div class="success-msg" id="successMsg">
+        <h4>✅ Application Submitted!</h4>
+        <p>Your application and CV have been sent to <strong>hospitalsita@gmail.com</strong>. We will contact you soon. Thank you!</p>
+      </div>
+
+      <form id="applyForm" onsubmit="submitApplication(event)">
+        <input type="hidden" id="job-position" value="">
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Full Name *</label>
+            <input type="text" id="applicant-name" placeholder="Your full name" required>
+          </div>
+          <div class="form-group">
+            <label>Phone Number *</label>
+            <input type="tel" id="applicant-phone" placeholder="98XXXXXXXX" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Email Address *</label>
+          <input type="email" id="applicant-email" placeholder="you@email.com" required>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Position Applying For</label>
+            <input type="text" id="position-display" readonly style="background:#f5f5f5;">
+          </div>
+          <div class="form-group">
+            <label>Experience</label>
+            <select id="applicant-exp">
+              <option value="Fresher">Fresher</option>
+              <option value="Less than 1 year">Less than 1 year</option>
+              <option value="1-3 years">1–3 years</option>
+              <option value="3-5 years">3–5 years</option>
+              <option value="5+ years">5+ years</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Highest Qualification *</label>
+          <input type="text" id="applicant-qual" placeholder="e.g. B.Sc Nursing, MBBS, BBA..." required>
+        </div>
+
+        <div class="form-group">
+          <label>Cover Letter / Why do you want to join? *</label>
+          <textarea id="applicant-cover" rows="4" placeholder="Tell us about yourself and why you want to join Sita Hospital..." required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>📎 Attach CV / Resume *</label>
+          <input type="file" id="applicant-cv" accept=".pdf,.doc,.docx" required>
+          <small style="color:var(--gray); font-size:0.75rem;">Accepted: PDF, DOC, DOCX</small>
+        </div>
+
+        <button type="submit" class="submit-btn">Send Application →</button>
+        <p class="form-note">Your application will be emailed to hospitalsita@gmail.com</p>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Page navigation
+  function showPage(page) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById('page-' + page).classList.add('active');
+    document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+    const navEl = document.getElementById('nav-' + page);
+    if (navEl) navEl.classList.add('active');
+    window.scrollTo({top:0, behavior:'smooth'});
+  }
+
+  // Modal
+  function openModal(jobTitle) {
+    document.getElementById('modal-job-title').textContent = jobTitle;
+    document.getElementById('job-position').value = jobTitle;
+    document.getElementById('position-display').value = jobTitle;
+    document.getElementById('applyModal').classList.add('open');
+    document.getElementById('applyForm').style.display = 'block';
+    document.getElementById('successMsg').classList.remove('show');
+  }
+
+  function closeModal() {
+    document.getElementById('applyModal').classList.remove('open');
+    document.getElementById('applyForm').reset();
+  }
+
+  // Close modal on overlay click
+  document.getElementById('applyModal').addEventListener('click', function(e) {
+    if (e.target === this) closeModal();
+  });
+
+  // Submit application via mailto (works without backend)
+  function submitApplication(e) {
+    e.preventDefault();
+    const name = document.getElementById('applicant-name').value;
+    const phone = document.getElementById('applicant-phone').value;
+    const email = document.getElementById('applicant-email').value;
+    const position = document.getElementById('job-position').value;
+    const exp = document.getElementById('applicant-exp').value;
+    const qual = document.getElementById('applicant-qual').value;
+    const cover = document.getElementById('applicant-cover').value;
+
+    const subject = encodeURIComponent(`Job Application: ${position} — ${name}`);
+    const body = encodeURIComponent(
+`Dear HR Team,
+
+I am applying for the position of: ${position}
+
+--- APPLICANT DETAILS ---
+Name: ${name}
+Phone: ${phone}
+Email: ${email}
+Position: ${position}
+Experience: ${exp}
+Qualification: ${qual}
+
+--- COVER LETTER ---
+${cover}
+
+---
+Please find my CV attached separately. Sent from Sita Hospital Website Careers Portal.`
+    );
+
+    // Open mailto link
+    window.location.href = `mailto:hospitalsita@gmail.com?subject=${subject}&body=${body}`;
+
+    // Show success
+    document.getElementById('applyForm').style.display = 'none';
+    document.getElementById('successMsg').classList.add('show');
+  }
 </script>
 </body>
 </html>
