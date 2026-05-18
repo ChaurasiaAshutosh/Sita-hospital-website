@@ -234,8 +234,8 @@
 <!-- NAV -->
 <nav>
   <div class="nav-inner">
-    <div class="nav-logo">
-      <img src="logo.jpeg" alt="Sita Hospital Logo">
+    <div class="nav-logo" onclick="showPage('home')" style="cursor:pointer;">
+      <img src="image/logo.png" alt="Sita Hospital Logo">
       <div class="nav-brand">
         <strong>Sita Super Speciality Hospital</strong>
         <span>& Research Centre Pvt Ltd — Birgunj</span>
@@ -250,7 +250,7 @@
       <a href="#" onclick="showPage('careers')" id="nav-careers">Careers</a>
       <a href="#" onclick="showPage('contact')" id="nav-contact">Contact</a>
     </div>
-    <a href="tel:051-525090" class="nav-emergency">🚨 Emergency</a>
+    <button onclick="openEmergencyModal()" class="nav-emergency" style="border:none;cursor:pointer;font-family:'DM Sans',sans-serif;">🚨 Emergency</button>
   </div>
 </nav>
 
@@ -273,14 +273,14 @@
   <!-- HERO -->
   <div class="hero">
     <div class="hero-logo">
-      <img src="logo.jpeg" alt="Sita Hospital Logo">
+      <img src="image/logo.png" alt="Sita Hospital Logo">
     </div>
     <h1>Sita Super Speciality<br><span>Hospital & Research Centre</span></h1>
     <p>Sita Superspeciality Hospital & Research Centre Pvt Ltd</p>
     <p class="hero-tagline">"We Treat, He Cures"</p>
     <div class="hero-btns">
-      <a href="#" onclick="showPage('services')" class="btn-primary">View OPD Schedule</a>
-      <a href="#" onclick="showPage('careers')" class="btn-outline">Join Our Team</a>
+      <a href="#" onclick="showPage('services'); return false;" class="btn-primary">View OPD Schedule</a>
+      <a href="#" onclick="showPage('careers'); return false;" class="btn-outline">Join Our Team</a>
     </div>
     <div class="hero-stats">
       <div class="stat"><div class="stat-num">100</div><div class="stat-label">Beds</div></div>
@@ -1019,13 +1019,13 @@
     </div>
     <div class="footer-col">
       <h4>Departments</h4>
-      <a href="#">Orthopaedics</a>
-      <a href="#">Obs & Gynaecology</a>
-      <a href="#">Medicine</a>
-      <a href="#">ENT</a>
-      <a href="#">Neuro Surgery</a>
-      <a href="#">Paediatrics</a>
-      <a href="#">Cardiology</a>
+      <a href="#" onclick="showPage('services'); return false;">Orthopaedics</a>
+      <a href="#" onclick="showPage('services'); return false;">Obs & Gynaecology</a>
+      <a href="#" onclick="showPage('services'); return false;">Medicine</a>
+      <a href="#" onclick="showPage('services'); return false;">ENT</a>
+      <a href="#" onclick="showPage('services'); return false;">Neuro Surgery</a>
+      <a href="#" onclick="showPage('services'); return false;">Paediatrics</a>
+      <a href="#" onclick="showPage('services'); return false;">Cardiology</a>
     </div>
     <div class="footer-col">
       <h4>Contact</h4>
@@ -1183,6 +1183,79 @@ Please find my CV attached separately. Sent from Sita Hospital Website Careers P
     document.getElementById('applyForm').style.display = 'none';
     document.getElementById('successMsg').classList.add('show');
   }
+  function openEmergencyModal() {
+    document.getElementById('emergencyModal').classList.add('open');
+  }
+  function closeEmergencyModal() {
+    document.getElementById('emergencyModal').classList.remove('open');
+  }
+  document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('emergencyModal').addEventListener('click', function(e) {
+      if (e.target === this) closeEmergencyModal();
+    });
+  });
 </script>
+
+<!-- EMERGENCY MODAL -->
+<div class="modal-overlay" id="emergencyModal">
+  <div class="modal" style="max-width:480px;">
+    <div class="modal-header" style="background:var(--red);">
+      <h3>🚨 Emergency Contact</h3>
+      <button class="modal-close" onclick="closeEmergencyModal()">×</button>
+    </div>
+    <div class="modal-body" style="padding:0;">
+
+      <!-- Big call button -->
+      <div style="background:#fff5f5; padding:2rem; text-align:center; border-bottom:1px solid #fdd;">
+        <div style="font-size:1rem; color:#555; margin-bottom:0.5rem;">24/7 Emergency Helpline</div>
+        <a href="tel:051525090" style="display:inline-block; background:var(--red); color:#fff; font-size:1.8rem; font-weight:700; padding:0.8rem 2.5rem; border-radius:8px; text-decoration:none; letter-spacing:0.05em; margin-bottom:0.5rem;">
+          📞 051-525090
+        </a>
+        <div style="font-size:0.8rem; color:#888; margin-top:0.4rem;">Tap the number to call directly</div>
+      </div>
+
+      <!-- Info rows -->
+      <div style="padding:1.5rem; display:flex; flex-direction:column; gap:1rem;">
+        <div style="display:flex; gap:1rem; align-items:flex-start;">
+          <span style="font-size:1.3rem;">🏥</span>
+          <div>
+            <strong style="font-size:0.88rem; color:var(--navy);">Emergency Department</strong>
+            <p style="font-size:0.82rem; color:var(--gray); margin-top:0.2rem;">Emergency Room — विभाग (१)<br>Open 24 Hours, 7 Days a Week</p>
+          </div>
+        </div>
+        <div style="display:flex; gap:1rem; align-items:flex-start;">
+          <span style="font-size:1.3rem;">👨‍⚕️</span>
+          <div>
+            <strong style="font-size:0.88rem; color:var(--navy);">On-Duty Doctor</strong>
+            <p style="font-size:0.82rem; color:var(--gray); margin-top:0.2rem;">Dr. Uday Narayan Singh<br>Emergency Medical Officer</p>
+          </div>
+        </div>
+        <div style="display:flex; gap:1rem; align-items:flex-start;">
+          <span style="font-size:1.3rem;">💰</span>
+          <div>
+            <strong style="font-size:0.88rem; color:var(--navy);">Emergency Fee</strong>
+            <p style="font-size:0.82rem; color:var(--gray); margin-top:0.2rem;">Rs. 300/- consultation fee</p>
+          </div>
+        </div>
+        <div style="display:flex; gap:1rem; align-items:flex-start;">
+          <span style="font-size:1.3rem;">📍</span>
+          <div>
+            <strong style="font-size:0.88rem; color:var(--navy);">Location</strong>
+            <p style="font-size:0.82rem; color:var(--gray); margin-top:0.2rem;">Main Road Birta-04, Birgunj<br>
+            <a href="https://maps.google.com/?q=Birta+Birgunj+Nepal" target="_blank" style="color:var(--red); font-size:0.8rem;">Open in Google Maps →</a></p>
+          </div>
+        </div>
+      </div>
+
+      <div style="padding:0 1.5rem 1.5rem;">
+        <a href="tel:051525090" style="display:block; background:var(--navy); color:#fff; text-align:center; padding:0.9rem; border-radius:6px; text-decoration:none; font-weight:600; font-size:0.95rem;">
+          Call Now: 051-525090
+        </a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
