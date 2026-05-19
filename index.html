@@ -91,6 +91,7 @@
   .notice-band { background:var(--red); color:var(--white); padding:0.6rem 0; overflow:hidden; }
   .notice-scroll { white-space:nowrap; animation:scroll-left 30s linear infinite; display:inline-block; }
   .notice-scroll span { margin:0 3rem; font-size:0.85rem; font-weight:500; }
+  .timing-table tr.dept-highlight td { background:#fff3cd; transition: background 0.5s; }
   @keyframes scroll-left { from{transform:translateX(100vw)} to{transform:translateX(-100%)} }
 
   /* SERVICES GRID */
@@ -235,20 +236,20 @@
 <nav>
   <div class="nav-inner">
     <div class="nav-logo" onclick="showPage('home')" style="cursor:pointer;">
-      <img src="logo.jpeg" alt="Sita Hospital Logo">
+      <img src="image/logo.png" alt="Sita Hospital Logo">
       <div class="nav-brand">
         <strong>Sita Super Speciality Hospital</strong>
         <span>& Research Centre Pvt Ltd — Birgunj</span>
       </div>
     </div>
     <div class="nav-links">
-      <a href="#" onclick="showPage('home')" class="active" id="nav-home">Home</a>
-      <a href="#" onclick="showPage('about')" id="nav-about">About</a>
-      <a href="#" onclick="showPage('services')" id="nav-services">OPD / Services</a>
-      <a href="#" onclick="showPage('doctors')" id="nav-doctors">Doctors</a>
-      <a href="#" onclick="showPage('facilities')" id="nav-facilities">Facilities</a>
-      <a href="#" onclick="showPage('careers')" id="nav-careers">Careers</a>
-      <a href="#" onclick="showPage('contact')" id="nav-contact">Contact</a>
+      <a href="javascript:void(0)" onclick="showPage('home')" class="active" id="nav-home">Home</a>
+      <a href="javascript:void(0)" onclick="showPage('about')" id="nav-about">About</a>
+      <a href="javascript:void(0)" onclick="showPage('services')" id="nav-services">OPD / Services</a>
+      <a href="javascript:void(0)" onclick="showPage('doctors')" id="nav-doctors">Doctors</a>
+      <a href="javascript:void(0)" onclick="showPage('facilities')" id="nav-facilities">Facilities</a>
+      <a href="javascript:void(0)" onclick="showPage('careers')" id="nav-careers">Careers</a>
+      <a href="javascript:void(0)" onclick="showPage('contact')" id="nav-contact">Contact</a>
     </div>
     <button onclick="openEmergencyModal()" class="nav-emergency" style="border:none;cursor:pointer;font-family:'DM Sans',sans-serif;">🚨 Emergency</button>
   </div>
@@ -273,15 +274,12 @@
   <!-- HERO -->
   <div class="hero">
     <div class="hero-logo">
-      <img src="logo.jpeg" alt="Sita Hospital Logo">
+      <img src="image/logo.png" alt="Sita Hospital Logo">
     </div>
     <h1>Sita Super Speciality<br><span>Hospital & Research Centre</span></h1>
     <p>Sita Superspeciality Hospital & Research Centre Pvt Ltd</p>
     <p class="hero-tagline">"We Treat, He Cures"</p>
-    <div class="hero-btns">
-      <a href="#" onclick="showPage('services'); return false;" class="btn-primary">View OPD Schedule</a>
-      <a href="#" onclick="showPage('careers'); return false;" class="btn-outline">Join Our Team</a>
-    </div>
+
     <div class="hero-stats">
       <div class="stat"><div class="stat-num">100</div><div class="stat-label">Beds</div></div>
       <div class="stat"><div class="stat-num">15+</div><div class="stat-label">Specialities</div></div>
@@ -509,55 +507,55 @@
     <table class="timing-table">
       <thead><tr><th>Dept.</th><th>Doctor</th><th>Days & Timing</th><th>Fee</th></tr></thead>
       <tbody>
-        <tr>
+        <tr id="dept-ortho">
           <td><span class="dept-badge">Orthopaedic</span></td>
           <td>Dr Dinilp Kumar Chaurasiya<br><small>MBBS, MS Ortho, KU</small></td>
           <td>8:00am–9:30am<br>8:30am–10:00am<br>1:30pm–3:00pm</td>
           <td class="fee-tag">Rs. 300/-</td>
         </tr>
-        <tr>
+        <tr id="dept-gynae">
           <td><span class="dept-badge">Obs & Gynae</span></td>
           <td>Dr Neelam Chaurasiya<br><small>MBBS(TU), MD(KU)</small></td>
           <td>9:00–10:00am<br>2:00pm–7:00pm<br>8:30–10am</td>
           <td class="fee-tag">Rs. 300/-</td>
         </tr>
-        <tr>
+        <tr id="dept-medicine">
           <td><span class="dept-badge">Medicine</span></td>
           <td>Dr Ravi Ranjan Sah</td>
           <td>9:00am–10:00am<br>10:00am–3:00pm<br>2:00pm–5:00pm<br>12:30am–2:00pm</td>
           <td class="fee-tag">Rs. 300/-</td>
         </tr>
-        <tr>
+        <tr id="dept-ent">
           <td><span class="dept-badge">ENT</span></td>
           <td>Dr Dinesh Kumar Sah Teli<br>Dr Amod Shrestha</td>
           <td>On Schedule</td>
           <td class="fee-tag">Rs. 300/-</td>
         </tr>
-        <tr>
+        <tr id="dept-neuro">
           <td><span class="dept-badge">Neuro Surgery</span></td>
           <td>Dr Firoj Afjal</td>
           <td>9:00–10:00am<br>10:00am–1:00pm</td>
           <td class="fee-tag">Rs. 300/-</td>
         </tr>
-        <tr>
+        <tr id="dept-uro">
           <td><span class="dept-badge">Uro Surgery</span></td>
           <td>Dr Bidyanand Chaurasiya<br>Dr Pashupati Bhatt</td>
           <td>10:00am–3:00pm<br>8:30am–9:30am<br>1:00am–2:00pm<br>3:00pm–5:00pm</td>
           <td class="fee-tag">Rs. 300/-</td>
         </tr>
-        <tr>
+        <tr id="dept-paeds">
           <td><span class="dept-badge">Pediatrics</span></td>
           <td>Dr Kushraj Giri<br>Dr Navin Jha<br>Dr Madhurendra Gupta</td>
           <td>On Schedule</td>
           <td class="fee-tag">Rs. 300/-</td>
         </tr>
-        <tr>
+        <tr id="dept-cardio">
           <td><span class="dept-badge">Cardio</span></td>
           <td>Dr Brijesh Pandey</td>
           <td>On Schedule</td>
           <td class="fee-tag">Rs. 300/-</td>
         </tr>
-        <tr>
+        <tr id="dept-derm">
           <td><span class="dept-badge">Dermatology</span></td>
           <td>Dr Rohit Gupta</td>
           <td>On Schedule</td>
@@ -1010,22 +1008,22 @@
     </div>
     <div class="footer-col">
       <h4>Quick Links</h4>
-      <a href="#" onclick="showPage('about')">About Us</a>
-      <a href="#" onclick="showPage('services')">OPD Schedule</a>
-      <a href="#" onclick="showPage('doctors')">Our Doctors</a>
-      <a href="#" onclick="showPage('facilities')">Facilities</a>
-      <a href="#" onclick="showPage('careers')">Careers</a>
-      <a href="#" onclick="showPage('contact')">Contact</a>
+      <a href="javascript:void(0)" onclick="showPage('about')">About Us</a>
+      <a href="javascript:void(0)" onclick="showPage('services')">OPD Schedule</a>
+      <a href="javascript:void(0)" onclick="showPage('doctors')">Our Doctors</a>
+      <a href="javascript:void(0)" onclick="showPage('facilities')">Facilities</a>
+      <a href="javascript:void(0)" onclick="showPage('careers')">Careers</a>
+      <a href="javascript:void(0)" onclick="showPage('contact')">Contact</a>
     </div>
     <div class="footer-col">
       <h4>Departments</h4>
-      <a href="#" onclick="showPage('services'); return false;">Orthopaedics</a>
-      <a href="#" onclick="showPage('services'); return false;">Obs & Gynaecology</a>
-      <a href="#" onclick="showPage('services'); return false;">Medicine</a>
-      <a href="#" onclick="showPage('services'); return false;">ENT</a>
-      <a href="#" onclick="showPage('services'); return false;">Neuro Surgery</a>
-      <a href="#" onclick="showPage('services'); return false;">Paediatrics</a>
-      <a href="#" onclick="showPage('services'); return false;">Cardiology</a>
+      <a href="javascript:void(0)" onclick="showDept('ortho')">Orthopaedics</a>
+      <a href="javascript:void(0)" onclick="showDept('gynae')">Obs & Gynaecology</a>
+      <a href="javascript:void(0)" onclick="showDept('medicine')">Medicine</a>
+      <a href="javascript:void(0)" onclick="showDept('ent')">ENT</a>
+      <a href="javascript:void(0)" onclick="showDept('neuro')">Neuro Surgery</a>
+      <a href="javascript:void(0)" onclick="showDept('paeds')">Paediatrics</a>
+      <a href="javascript:void(0)" onclick="showDept('cardio')">Cardiology</a>
     </div>
     <div class="footer-col">
       <h4>Contact</h4>
@@ -1122,6 +1120,19 @@
     const navEl = document.getElementById('nav-' + page);
     if (navEl) navEl.classList.add('active');
     window.scrollTo({top:0, behavior:'smooth'});
+  }
+
+  // Navigate to services page and highlight a specific department row
+  function showDept(deptId) {
+    showPage('services');
+    setTimeout(function() {
+      const el = document.getElementById('dept-' + deptId);
+      if (el) {
+        el.scrollIntoView({behavior:'smooth', block:'center'});
+        el.classList.add('dept-highlight');
+        setTimeout(function() { el.classList.remove('dept-highlight'); }, 2000);
+      }
+    }, 100);
   }
 
   // Modal
